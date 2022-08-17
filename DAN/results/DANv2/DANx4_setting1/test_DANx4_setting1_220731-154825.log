@@ -1,0 +1,1176 @@
+22-07-31 15:48:25.240 - INFO:   name: DANx4_setting1
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+  degradation:[
+    random_kernel: True
+    ksize: 21
+    code_length: 10
+    sig_min: 0.7
+    sig_max: 10
+    rate_iso: 0
+    random_disturb: False
+  ]
+  datasets:[
+    test4:[
+      name: urban100
+      mode: GT
+      dataroot_GT: C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val
+      dataroot_LQ: /data/urban100/x4LRblur.lmdb
+      phase: test4
+      scale: 4
+      data_type: lmdb
+    ]
+  ]
+  network_G:[
+    which_model_G: DAN
+    setting:[
+      nf: 64
+      nb: 10
+      ng: 5
+      input_para: 10
+      loop: 4
+      kernel_size: 21
+      pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+      upscale: 4
+    ]
+  ]
+  path:[
+    pretrain_model_G: C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth
+    root: C:\Users\Dooly\Desktop\DAN\DAN
+    results_root: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+    log: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+  ]
+  is_train: False
+
+22-07-31 15:48:25.250 - INFO: Dataset [GTDataset - urban100] is created.
+22-07-31 15:48:25.250 - INFO: Number of test images in [urban100]: 400
+22-07-31 15:48:26.688 - INFO: Network G structure: DataParallel - DAN, with parameters: 4,707,708
+22-07-31 15:48:26.689 - INFO: DAN(
+  (Restorer): Restorer(
+    (head1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (head2): Conv2d(10, 64, kernel_size=(1, 1), stride=(1, 1))
+    (body): Sequential(
+      (0): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (1): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (2): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (3): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (4): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+    )
+    (fusion): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (upscale): Sequential(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+      (4): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (Estimator): Estimator(
+    (head_LR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    )
+    (head_HR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(17, 17), stride=(4, 4), padding=(8, 8))
+    )
+    (body): DPCG(
+      (body): Sequential(
+        (0): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+    )
+    (tail): Sequential(
+      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): AdaptiveAvgPool2d(output_size=1)
+      (2): Conv2d(64, 441, kernel_size=(1, 1), stride=(1, 1))
+      (3): Softmax(dim=1)
+    )
+  )
+)
+22-07-31 15:48:26.737 - INFO: Loading model for G [C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth] ...
+22-07-31 15:48:26.820 - INFO: Model [B_Model] is created.
+22-07-31 15:48:26.820 - INFO: 
+Testing [urban100]...
+22-07-31 15:48:30.881 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000000.png - PSNR: 26.044441 dB; SSIM: 0.681259; PSNR_Y: 27.460048 dB; SSIM_Y: 0.717318.
+22-07-31 15:48:33.291 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000001.png - PSNR: 26.765418 dB; SSIM: 0.720795; PSNR_Y: 28.177046 dB; SSIM_Y: 0.752545.
+22-07-31 15:48:35.626 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000002.png - PSNR: 26.815740 dB; SSIM: 0.718715; PSNR_Y: 28.229553 dB; SSIM_Y: 0.750698.
+22-07-31 15:48:38.024 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000003.png - PSNR: 26.260535 dB; SSIM: 0.688653; PSNR_Y: 27.676331 dB; SSIM_Y: 0.723943.
+22-07-31 15:48:40.379 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000004.png - PSNR: 26.483024 dB; SSIM: 0.691179; PSNR_Y: 27.864993 dB; SSIM_Y: 0.726163.
+22-07-31 15:48:42.814 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000005.png - PSNR: 27.190014 dB; SSIM: 0.713784; PSNR_Y: 28.548609 dB; SSIM_Y: 0.745971.
+22-07-31 15:48:45.175 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000006.png - PSNR: 26.934203 dB; SSIM: 0.701020; PSNR_Y: 28.329403 dB; SSIM_Y: 0.736390.
+22-07-31 15:48:47.542 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000007.png - PSNR: 27.598475 dB; SSIM: 0.741106; PSNR_Y: 28.953209 dB; SSIM_Y: 0.769617.
+22-07-31 15:48:49.949 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000008.png - PSNR: 26.159535 dB; SSIM: 0.674785; PSNR_Y: 27.552870 dB; SSIM_Y: 0.711307.
+22-07-31 15:48:52.356 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000009.png - PSNR: 26.000855 dB; SSIM: 0.676478; PSNR_Y: 27.427913 dB; SSIM_Y: 0.712985.
+22-07-31 15:48:54.752 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000010.png - PSNR: 26.509489 dB; SSIM: 0.711125; PSNR_Y: 27.908208 dB; SSIM_Y: 0.742335.
+22-07-31 15:48:57.117 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000011.png - PSNR: 25.552738 dB; SSIM: 0.684850; PSNR_Y: 27.004759 dB; SSIM_Y: 0.718847.
+22-07-31 15:48:59.524 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000012.png - PSNR: 26.989580 dB; SSIM: 0.730367; PSNR_Y: 28.360766 dB; SSIM_Y: 0.759336.
+22-07-31 15:49:01.957 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000013.png - PSNR: 26.270259 dB; SSIM: 0.690797; PSNR_Y: 27.641225 dB; SSIM_Y: 0.723203.
+22-07-31 15:49:04.309 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000014.png - PSNR: 26.261349 dB; SSIM: 0.701622; PSNR_Y: 27.650745 dB; SSIM_Y: 0.733667.
+22-07-31 15:49:06.721 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000015.png - PSNR: 26.253101 dB; SSIM: 0.699011; PSNR_Y: 27.646670 dB; SSIM_Y: 0.731978.
+22-07-31 15:49:09.170 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000016.png - PSNR: 26.320325 dB; SSIM: 0.702230; PSNR_Y: 27.709862 dB; SSIM_Y: 0.734988.
+22-07-31 15:49:11.580 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000017.png - PSNR: 25.414189 dB; SSIM: 0.650545; PSNR_Y: 26.796529 dB; SSIM_Y: 0.688145.
+22-07-31 15:49:13.942 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000018.png - PSNR: 25.944268 dB; SSIM: 0.682990; PSNR_Y: 27.327335 dB; SSIM_Y: 0.717422.
+22-07-31 15:49:16.311 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000019.png - PSNR: 25.894234 dB; SSIM: 0.663447; PSNR_Y: 27.289391 dB; SSIM_Y: 0.702348.
+22-07-31 15:49:18.640 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000020.png - PSNR: 25.955267 dB; SSIM: 0.656102; PSNR_Y: 27.327387 dB; SSIM_Y: 0.694894.
+22-07-31 15:49:21.029 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000021.png - PSNR: 27.187602 dB; SSIM: 0.722245; PSNR_Y: 28.534785 dB; SSIM_Y: 0.752876.
+22-07-31 15:49:23.411 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000022.png - PSNR: 25.734069 dB; SSIM: 0.646481; PSNR_Y: 27.122806 dB; SSIM_Y: 0.686788.
+22-07-31 15:49:25.872 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000023.png - PSNR: 25.833452 dB; SSIM: 0.656642; PSNR_Y: 27.234290 dB; SSIM_Y: 0.696096.
+22-07-31 15:49:28.231 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000024.png - PSNR: 25.303568 dB; SSIM: 0.641541; PSNR_Y: 26.686515 dB; SSIM_Y: 0.679837.
+22-07-31 15:49:30.600 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000025.png - PSNR: 25.795044 dB; SSIM: 0.670392; PSNR_Y: 27.198757 dB; SSIM_Y: 0.707510.
+22-07-31 15:49:33.196 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000026.png - PSNR: 25.943426 dB; SSIM: 0.697499; PSNR_Y: 27.303772 dB; SSIM_Y: 0.729255.
+22-07-31 15:49:35.628 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000027.png - PSNR: 26.809973 dB; SSIM: 0.740299; PSNR_Y: 28.159023 dB; SSIM_Y: 0.767208.
+22-07-31 15:49:38.179 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000028.png - PSNR: 25.883468 dB; SSIM: 0.692515; PSNR_Y: 27.246776 dB; SSIM_Y: 0.725755.
+22-07-31 15:49:40.618 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000029.png - PSNR: 26.167321 dB; SSIM: 0.700719; PSNR_Y: 27.527581 dB; SSIM_Y: 0.733210.
+22-07-31 15:49:43.134 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000030.png - PSNR: 25.634209 dB; SSIM: 0.670419; PSNR_Y: 27.038788 dB; SSIM_Y: 0.708345.
+22-07-31 15:49:45.613 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000031.png - PSNR: 25.729711 dB; SSIM: 0.676961; PSNR_Y: 27.129387 dB; SSIM_Y: 0.714294.
+22-07-31 15:49:48.037 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000032.png - PSNR: 25.881271 dB; SSIM: 0.699597; PSNR_Y: 27.241526 dB; SSIM_Y: 0.732249.
+22-07-31 15:49:50.445 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000033.png - PSNR: 26.220339 dB; SSIM: 0.713595; PSNR_Y: 27.601539 dB; SSIM_Y: 0.746158.
+22-07-31 15:49:52.851 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000034.png - PSNR: 26.328550 dB; SSIM: 0.730963; PSNR_Y: 27.685090 dB; SSIM_Y: 0.760231.
+22-07-31 15:49:55.273 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000035.png - PSNR: 25.409589 dB; SSIM: 0.675748; PSNR_Y: 26.804868 dB; SSIM_Y: 0.712893.
+22-07-31 15:49:57.626 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000036.png - PSNR: 26.096463 dB; SSIM: 0.722049; PSNR_Y: 27.461643 dB; SSIM_Y: 0.752774.
+22-07-31 15:50:00.051 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000037.png - PSNR: 25.967006 dB; SSIM: 0.708523; PSNR_Y: 27.334260 dB; SSIM_Y: 0.740906.
+22-07-31 15:50:02.454 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000038.png - PSNR: 25.785820 dB; SSIM: 0.702921; PSNR_Y: 27.161415 dB; SSIM_Y: 0.736603.
+22-07-31 15:50:04.867 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000039.png - PSNR: 25.753171 dB; SSIM: 0.704346; PSNR_Y: 27.132602 dB; SSIM_Y: 0.737964.
+22-07-31 15:50:07.279 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000040.png - PSNR: 25.935047 dB; SSIM: 0.727702; PSNR_Y: 27.323320 dB; SSIM_Y: 0.758867.
+22-07-31 15:50:09.658 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000041.png - PSNR: 25.815758 dB; SSIM: 0.715224; PSNR_Y: 27.184532 dB; SSIM_Y: 0.747022.
+22-07-31 15:50:12.054 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000042.png - PSNR: 25.592564 dB; SSIM: 0.692200; PSNR_Y: 26.990108 dB; SSIM_Y: 0.728880.
+22-07-31 15:50:14.476 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000043.png - PSNR: 26.519897 dB; SSIM: 0.741406; PSNR_Y: 27.883579 dB; SSIM_Y: 0.770983.
+22-07-31 15:50:16.880 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000044.png - PSNR: 25.884959 dB; SSIM: 0.687510; PSNR_Y: 27.276835 dB; SSIM_Y: 0.725671.
+22-07-31 15:50:19.286 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000045.png - PSNR: 26.042835 dB; SSIM: 0.689627; PSNR_Y: 27.425076 dB; SSIM_Y: 0.726399.
+22-07-31 15:50:21.687 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000046.png - PSNR: 25.948448 dB; SSIM: 0.676287; PSNR_Y: 27.354797 dB; SSIM_Y: 0.715785.
+22-07-31 15:50:24.059 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000047.png - PSNR: 26.104328 dB; SSIM: 0.680617; PSNR_Y: 27.507386 dB; SSIM_Y: 0.719646.
+22-07-31 15:50:26.499 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000048.png - PSNR: 26.772913 dB; SSIM: 0.743552; PSNR_Y: 28.143666 dB; SSIM_Y: 0.772335.
+22-07-31 15:50:28.930 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000049.png - PSNR: 27.081122 dB; SSIM: 0.752333; PSNR_Y: 28.445271 dB; SSIM_Y: 0.779563.
+22-07-31 15:50:31.316 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000050.png - PSNR: 25.578379 dB; SSIM: 0.681299; PSNR_Y: 26.987421 dB; SSIM_Y: 0.718563.
+22-07-31 15:50:33.735 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000051.png - PSNR: 25.599228 dB; SSIM: 0.697814; PSNR_Y: 27.013775 dB; SSIM_Y: 0.732446.
+22-07-31 15:50:36.141 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000052.png - PSNR: 25.387780 dB; SSIM: 0.705270; PSNR_Y: 26.804112 dB; SSIM_Y: 0.737720.
+22-07-31 15:50:38.621 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000053.png - PSNR: 25.348204 dB; SSIM: 0.700587; PSNR_Y: 26.753155 dB; SSIM_Y: 0.733470.
+22-07-31 15:50:41.037 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000054.png - PSNR: 26.598871 dB; SSIM: 0.766692; PSNR_Y: 27.964824 dB; SSIM_Y: 0.790455.
+22-07-31 15:50:43.470 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000055.png - PSNR: 26.769015 dB; SSIM: 0.768243; PSNR_Y: 28.129602 dB; SSIM_Y: 0.792019.
+22-07-31 15:50:45.895 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000056.png - PSNR: 25.551253 dB; SSIM: 0.697323; PSNR_Y: 26.955478 dB; SSIM_Y: 0.731535.
+22-07-31 15:50:48.305 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000057.png - PSNR: 25.673816 dB; SSIM: 0.700072; PSNR_Y: 27.090002 dB; SSIM_Y: 0.734817.
+22-07-31 15:50:50.656 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000058.png - PSNR: 25.699133 dB; SSIM: 0.697058; PSNR_Y: 27.112210 dB; SSIM_Y: 0.732150.
+22-07-31 15:50:53.018 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000059.png - PSNR: 25.970690 dB; SSIM: 0.719980; PSNR_Y: 27.396328 dB; SSIM_Y: 0.751994.
+22-07-31 15:50:55.400 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000060.png - PSNR: 25.800779 dB; SSIM: 0.707990; PSNR_Y: 27.231772 dB; SSIM_Y: 0.741806.
+22-07-31 15:50:57.826 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000061.png - PSNR: 27.046288 dB; SSIM: 0.775434; PSNR_Y: 28.402150 dB; SSIM_Y: 0.797972.
+22-07-31 15:51:00.220 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000062.png - PSNR: 25.466302 dB; SSIM: 0.698199; PSNR_Y: 26.882388 dB; SSIM_Y: 0.731533.
+22-07-31 15:51:02.594 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000063.png - PSNR: 25.795896 dB; SSIM: 0.715231; PSNR_Y: 27.223902 dB; SSIM_Y: 0.747943.
+22-07-31 15:51:05.002 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000064.png - PSNR: 25.473917 dB; SSIM: 0.711247; PSNR_Y: 26.893794 dB; SSIM_Y: 0.743271.
+22-07-31 15:51:07.439 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000065.png - PSNR: 25.740539 dB; SSIM: 0.722537; PSNR_Y: 27.166811 dB; SSIM_Y: 0.754576.
+22-07-31 15:51:09.864 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000066.png - PSNR: 25.754816 dB; SSIM: 0.719883; PSNR_Y: 27.168845 dB; SSIM_Y: 0.750955.
+22-07-31 15:51:12.281 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000067.png - PSNR: 26.283236 dB; SSIM: 0.737669; PSNR_Y: 27.695283 dB; SSIM_Y: 0.767029.
+22-07-31 15:51:14.679 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000068.png - PSNR: 25.719939 dB; SSIM: 0.697971; PSNR_Y: 27.151434 dB; SSIM_Y: 0.732402.
+22-07-31 15:51:17.041 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000069.png - PSNR: 25.458154 dB; SSIM: 0.679029; PSNR_Y: 26.872592 dB; SSIM_Y: 0.714286.
+22-07-31 15:51:19.458 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000070.png - PSNR: 25.704945 dB; SSIM: 0.690048; PSNR_Y: 27.139682 dB; SSIM_Y: 0.724438.
+22-07-31 15:51:21.834 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000071.png - PSNR: 25.462177 dB; SSIM: 0.678753; PSNR_Y: 26.876904 dB; SSIM_Y: 0.713176.
+22-07-31 15:51:24.234 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000072.png - PSNR: 25.926419 dB; SSIM: 0.708239; PSNR_Y: 27.326944 dB; SSIM_Y: 0.738197.
+22-07-31 15:51:26.614 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000073.png - PSNR: 27.099230 dB; SSIM: 0.749101; PSNR_Y: 28.456761 dB; SSIM_Y: 0.773582.
+22-07-31 15:51:28.988 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000074.png - PSNR: 25.819023 dB; SSIM: 0.681151; PSNR_Y: 27.223072 dB; SSIM_Y: 0.714790.
+22-07-31 15:51:31.334 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000075.png - PSNR: 25.656226 dB; SSIM: 0.676314; PSNR_Y: 27.084019 dB; SSIM_Y: 0.711378.
+22-07-31 15:51:33.756 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000076.png - PSNR: 25.280529 dB; SSIM: 0.667731; PSNR_Y: 26.693133 dB; SSIM_Y: 0.702089.
+22-07-31 15:51:36.127 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000077.png - PSNR: 26.888236 dB; SSIM: 0.758793; PSNR_Y: 28.244827 dB; SSIM_Y: 0.781309.
+22-07-31 15:51:38.490 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000078.png - PSNR: 25.631355 dB; SSIM: 0.698435; PSNR_Y: 27.055836 dB; SSIM_Y: 0.729483.
+22-07-31 15:51:40.896 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000079.png - PSNR: 25.783536 dB; SSIM: 0.718885; PSNR_Y: 27.175417 dB; SSIM_Y: 0.745940.
+22-07-31 15:51:43.245 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000080.png - PSNR: 25.251679 dB; SSIM: 0.696207; PSNR_Y: 26.636695 dB; SSIM_Y: 0.724797.
+22-07-31 15:51:45.625 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000081.png - PSNR: 25.569443 dB; SSIM: 0.704100; PSNR_Y: 26.968715 dB; SSIM_Y: 0.733328.
+22-07-31 15:51:47.980 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000082.png - PSNR: 25.326812 dB; SSIM: 0.697099; PSNR_Y: 26.722719 dB; SSIM_Y: 0.726100.
+22-07-31 15:51:50.386 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000083.png - PSNR: 24.799855 dB; SSIM: 0.671540; PSNR_Y: 26.172391 dB; SSIM_Y: 0.700810.
+22-07-31 15:51:52.771 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000084.png - PSNR: 25.568352 dB; SSIM: 0.703017; PSNR_Y: 26.953818 dB; SSIM_Y: 0.731070.
+22-07-31 15:51:55.182 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000085.png - PSNR: 25.881893 dB; SSIM: 0.725042; PSNR_Y: 27.241027 dB; SSIM_Y: 0.749534.
+22-07-31 15:51:57.553 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000086.png - PSNR: 25.288708 dB; SSIM: 0.687233; PSNR_Y: 26.662874 dB; SSIM_Y: 0.715458.
+22-07-31 15:51:59.923 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000087.png - PSNR: 24.944530 dB; SSIM: 0.658361; PSNR_Y: 26.333515 dB; SSIM_Y: 0.689463.
+22-07-31 15:52:02.287 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000088.png - PSNR: 24.693729 dB; SSIM: 0.657872; PSNR_Y: 26.074525 dB; SSIM_Y: 0.688096.
+22-07-31 15:52:04.651 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000089.png - PSNR: 25.134609 dB; SSIM: 0.689999; PSNR_Y: 26.545046 dB; SSIM_Y: 0.718617.
+22-07-31 15:52:07.026 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000090.png - PSNR: 25.206501 dB; SSIM: 0.697623; PSNR_Y: 26.610021 dB; SSIM_Y: 0.725305.
+22-07-31 15:52:09.412 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000091.png - PSNR: 25.296601 dB; SSIM: 0.699134; PSNR_Y: 26.693628 dB; SSIM_Y: 0.726643.
+22-07-31 15:52:11.784 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000092.png - PSNR: 25.916480 dB; SSIM: 0.733679; PSNR_Y: 27.302396 dB; SSIM_Y: 0.757841.
+22-07-31 15:52:14.192 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000093.png - PSNR: 26.256070 dB; SSIM: 0.747538; PSNR_Y: 27.617542 dB; SSIM_Y: 0.769675.
+22-07-31 15:52:16.568 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000094.png - PSNR: 25.856520 dB; SSIM: 0.726317; PSNR_Y: 27.222770 dB; SSIM_Y: 0.751236.
+22-07-31 15:52:18.964 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000095.png - PSNR: 26.486741 dB; SSIM: 0.739223; PSNR_Y: 27.887714 dB; SSIM_Y: 0.765659.
+22-07-31 15:52:21.384 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000096.png - PSNR: 27.333220 dB; SSIM: 0.765634; PSNR_Y: 28.699410 dB; SSIM_Y: 0.788253.
+22-07-31 15:52:23.729 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000097.png - PSNR: 26.836582 dB; SSIM: 0.754414; PSNR_Y: 28.207541 dB; SSIM_Y: 0.777909.
+22-07-31 15:52:26.063 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000098.png - PSNR: 25.296662 dB; SSIM: 0.674891; PSNR_Y: 26.685592 dB; SSIM_Y: 0.705926.
+22-07-31 15:52:28.432 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000099.png - PSNR: 26.224843 dB; SSIM: 0.728854; PSNR_Y: 27.597710 dB; SSIM_Y: 0.754520.
+22-07-31 15:52:30.776 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000000.png - PSNR: 24.574514 dB; SSIM: 0.688762; PSNR_Y: 25.898532 dB; SSIM_Y: 0.714329.
+22-07-31 15:52:33.198 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000001.png - PSNR: 25.084632 dB; SSIM: 0.720328; PSNR_Y: 26.427252 dB; SSIM_Y: 0.743422.
+22-07-31 15:52:35.544 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000002.png - PSNR: 24.514563 dB; SSIM: 0.680801; PSNR_Y: 25.872003 dB; SSIM_Y: 0.708324.
+22-07-31 15:52:37.963 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000003.png - PSNR: 24.161247 dB; SSIM: 0.656639; PSNR_Y: 25.507322 dB; SSIM_Y: 0.685930.
+22-07-31 15:52:40.396 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000004.png - PSNR: 24.398212 dB; SSIM: 0.674061; PSNR_Y: 25.752087 dB; SSIM_Y: 0.702792.
+22-07-31 15:52:42.870 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000005.png - PSNR: 25.106294 dB; SSIM: 0.713143; PSNR_Y: 26.472812 dB; SSIM_Y: 0.739236.
+22-07-31 15:52:45.255 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000006.png - PSNR: 24.657901 dB; SSIM: 0.688947; PSNR_Y: 26.012715 dB; SSIM_Y: 0.716633.
+22-07-31 15:52:47.646 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000007.png - PSNR: 24.768824 dB; SSIM: 0.697590; PSNR_Y: 26.113288 dB; SSIM_Y: 0.723670.
+22-07-31 15:52:50.002 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000008.png - PSNR: 25.718131 dB; SSIM: 0.754388; PSNR_Y: 27.057773 dB; SSIM_Y: 0.774570.
+22-07-31 15:52:52.324 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000009.png - PSNR: 24.606382 dB; SSIM: 0.684439; PSNR_Y: 25.968672 dB; SSIM_Y: 0.713147.
+22-07-31 15:52:54.699 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000010.png - PSNR: 24.781717 dB; SSIM: 0.697840; PSNR_Y: 26.124087 dB; SSIM_Y: 0.723771.
+22-07-31 15:52:57.059 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000011.png - PSNR: 25.626611 dB; SSIM: 0.741329; PSNR_Y: 26.967457 dB; SSIM_Y: 0.762496.
+22-07-31 15:52:59.425 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000012.png - PSNR: 24.999273 dB; SSIM: 0.702979; PSNR_Y: 26.352178 dB; SSIM_Y: 0.728665.
+22-07-31 15:53:01.792 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000013.png - PSNR: 24.534056 dB; SSIM: 0.674145; PSNR_Y: 25.888567 dB; SSIM_Y: 0.702522.
+22-07-31 15:53:04.179 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000014.png - PSNR: 24.451851 dB; SSIM: 0.668397; PSNR_Y: 25.822015 dB; SSIM_Y: 0.697525.
+22-07-31 15:53:06.540 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000015.png - PSNR: 25.385806 dB; SSIM: 0.725000; PSNR_Y: 26.723534 dB; SSIM_Y: 0.746924.
+22-07-31 15:53:08.873 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000016.png - PSNR: 24.317985 dB; SSIM: 0.659571; PSNR_Y: 25.675726 dB; SSIM_Y: 0.688261.
+22-07-31 15:53:11.263 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000017.png - PSNR: 23.788737 dB; SSIM: 0.628660; PSNR_Y: 25.121590 dB; SSIM_Y: 0.657322.
+22-07-31 15:53:13.648 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000018.png - PSNR: 23.861501 dB; SSIM: 0.629007; PSNR_Y: 25.200737 dB; SSIM_Y: 0.657828.
+22-07-31 15:53:16.009 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000019.png - PSNR: 23.463502 dB; SSIM: 0.600940; PSNR_Y: 24.800880 dB; SSIM_Y: 0.631285.
+22-07-31 15:53:18.387 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000020.png - PSNR: 23.575296 dB; SSIM: 0.608597; PSNR_Y: 24.921872 dB; SSIM_Y: 0.638320.
+22-07-31 15:53:20.741 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000021.png - PSNR: 23.719452 dB; SSIM: 0.623425; PSNR_Y: 25.057490 dB; SSIM_Y: 0.650791.
+22-07-31 15:53:23.129 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000022.png - PSNR: 23.742250 dB; SSIM: 0.626393; PSNR_Y: 25.088014 dB; SSIM_Y: 0.653599.
+22-07-31 15:53:25.514 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000023.png - PSNR: 23.425571 dB; SSIM: 0.608425; PSNR_Y: 24.759187 dB; SSIM_Y: 0.636231.
+22-07-31 15:53:27.865 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000024.png - PSNR: 23.848018 dB; SSIM: 0.634358; PSNR_Y: 25.179911 dB; SSIM_Y: 0.660832.
+22-07-31 15:53:30.223 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000025.png - PSNR: 23.795846 dB; SSIM: 0.629471; PSNR_Y: 25.128843 dB; SSIM_Y: 0.655782.
+22-07-31 15:53:32.587 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000026.png - PSNR: 24.367383 dB; SSIM: 0.670161; PSNR_Y: 25.703478 dB; SSIM_Y: 0.693234.
+22-07-31 15:53:34.978 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000027.png - PSNR: 23.646508 dB; SSIM: 0.610229; PSNR_Y: 24.993317 dB; SSIM_Y: 0.639347.
+22-07-31 15:53:37.320 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000028.png - PSNR: 23.650487 dB; SSIM: 0.611638; PSNR_Y: 24.996405 dB; SSIM_Y: 0.640416.
+22-07-31 15:53:39.653 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000029.png - PSNR: 23.618202 dB; SSIM: 0.606108; PSNR_Y: 24.967335 dB; SSIM_Y: 0.635739.
+22-07-31 15:53:42.055 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000030.png - PSNR: 24.630121 dB; SSIM: 0.677758; PSNR_Y: 25.963365 dB; SSIM_Y: 0.700959.
+22-07-31 15:53:44.457 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000031.png - PSNR: 23.488475 dB; SSIM: 0.594102; PSNR_Y: 24.826629 dB; SSIM_Y: 0.622974.
+22-07-31 15:53:46.912 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000032.png - PSNR: 22.998474 dB; SSIM: 0.562634; PSNR_Y: 24.337647 dB; SSIM_Y: 0.593092.
+22-07-31 15:53:49.320 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000033.png - PSNR: 24.031183 dB; SSIM: 0.648920; PSNR_Y: 25.365585 dB; SSIM_Y: 0.672200.
+22-07-31 15:53:51.703 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000034.png - PSNR: 24.175837 dB; SSIM: 0.659364; PSNR_Y: 25.510846 dB; SSIM_Y: 0.682175.
+22-07-31 15:53:54.077 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000035.png - PSNR: 23.699977 dB; SSIM: 0.623561; PSNR_Y: 25.045080 dB; SSIM_Y: 0.650096.
+22-07-31 15:53:56.472 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000036.png - PSNR: 23.316357 dB; SSIM: 0.592207; PSNR_Y: 24.660043 dB; SSIM_Y: 0.621424.
+22-07-31 15:53:58.836 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000037.png - PSNR: 23.181535 dB; SSIM: 0.584147; PSNR_Y: 24.516919 dB; SSIM_Y: 0.612753.
+22-07-31 15:54:01.231 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000038.png - PSNR: 23.339495 dB; SSIM: 0.599341; PSNR_Y: 24.677875 dB; SSIM_Y: 0.625905.
+22-07-31 15:54:03.604 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000039.png - PSNR: 23.412383 dB; SSIM: 0.610233; PSNR_Y: 24.747770 dB; SSIM_Y: 0.635659.
+22-07-31 15:54:05.991 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000040.png - PSNR: 22.807562 dB; SSIM: 0.562820; PSNR_Y: 24.147284 dB; SSIM_Y: 0.591409.
+22-07-31 15:54:08.368 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000041.png - PSNR: 22.763249 dB; SSIM: 0.560320; PSNR_Y: 24.105057 dB; SSIM_Y: 0.589166.
+22-07-31 15:54:10.733 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000042.png - PSNR: 22.901974 dB; SSIM: 0.579670; PSNR_Y: 24.249668 dB; SSIM_Y: 0.608026.
+22-07-31 15:54:13.129 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000043.png - PSNR: 23.254126 dB; SSIM: 0.607703; PSNR_Y: 24.596045 dB; SSIM_Y: 0.632694.
+22-07-31 15:54:15.489 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000044.png - PSNR: 22.719315 dB; SSIM: 0.561613; PSNR_Y: 24.059954 dB; SSIM_Y: 0.590040.
+22-07-31 15:54:17.845 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000045.png - PSNR: 22.654690 dB; SSIM: 0.563701; PSNR_Y: 23.989058 dB; SSIM_Y: 0.590462.
+22-07-31 15:54:20.165 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000046.png - PSNR: 22.577397 dB; SSIM: 0.534870; PSNR_Y: 23.921690 dB; SSIM_Y: 0.563971.
+22-07-31 15:54:22.574 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000047.png - PSNR: 22.275294 dB; SSIM: 0.519120; PSNR_Y: 23.611718 dB; SSIM_Y: 0.546928.
+22-07-31 15:54:24.993 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000048.png - PSNR: 21.894485 dB; SSIM: 0.493570; PSNR_Y: 23.221153 dB; SSIM_Y: 0.522262.
+22-07-31 15:54:27.403 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000049.png - PSNR: 21.932898 dB; SSIM: 0.505185; PSNR_Y: 23.266343 dB; SSIM_Y: 0.533379.
+22-07-31 15:54:29.775 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000050.png - PSNR: 22.601950 dB; SSIM: 0.572499; PSNR_Y: 23.934406 dB; SSIM_Y: 0.595735.
+22-07-31 15:54:32.154 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000051.png - PSNR: 22.229148 dB; SSIM: 0.538189; PSNR_Y: 23.568423 dB; SSIM_Y: 0.564086.
+22-07-31 15:54:34.543 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000052.png - PSNR: 22.147137 dB; SSIM: 0.536743; PSNR_Y: 23.482294 dB; SSIM_Y: 0.562152.
+22-07-31 15:54:36.901 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000053.png - PSNR: 21.730462 dB; SSIM: 0.504808; PSNR_Y: 23.063403 dB; SSIM_Y: 0.532296.
+22-07-31 15:54:39.283 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000054.png - PSNR: 22.160569 dB; SSIM: 0.543640; PSNR_Y: 23.490229 dB; SSIM_Y: 0.568957.
+22-07-31 15:54:41.682 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000055.png - PSNR: 21.827105 dB; SSIM: 0.506645; PSNR_Y: 23.163335 dB; SSIM_Y: 0.534209.
+22-07-31 15:54:44.054 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000056.png - PSNR: 21.739995 dB; SSIM: 0.497419; PSNR_Y: 23.076811 dB; SSIM_Y: 0.525093.
+22-07-31 15:54:46.391 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000057.png - PSNR: 21.904117 dB; SSIM: 0.510567; PSNR_Y: 23.243705 dB; SSIM_Y: 0.537832.
+22-07-31 15:54:48.771 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000058.png - PSNR: 21.639773 dB; SSIM: 0.488985; PSNR_Y: 22.976772 dB; SSIM_Y: 0.517007.
+22-07-31 15:54:51.119 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000059.png - PSNR: 22.551347 dB; SSIM: 0.571850; PSNR_Y: 23.882967 dB; SSIM_Y: 0.594688.
+22-07-31 15:54:53.480 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000060.png - PSNR: 21.866605 dB; SSIM: 0.505908; PSNR_Y: 23.190043 dB; SSIM_Y: 0.533647.
+22-07-31 15:54:55.867 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000061.png - PSNR: 22.227352 dB; SSIM: 0.534915; PSNR_Y: 23.563867 dB; SSIM_Y: 0.562632.
+22-07-31 15:54:58.228 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000062.png - PSNR: 22.462141 dB; SSIM: 0.554462; PSNR_Y: 23.804859 dB; SSIM_Y: 0.581934.
+22-07-31 15:55:00.613 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000063.png - PSNR: 22.827801 dB; SSIM: 0.595478; PSNR_Y: 24.161154 dB; SSIM_Y: 0.619131.
+22-07-31 15:55:02.975 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000064.png - PSNR: 22.406259 dB; SSIM: 0.547250; PSNR_Y: 23.744449 dB; SSIM_Y: 0.574488.
+22-07-31 15:55:05.334 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000065.png - PSNR: 22.761877 dB; SSIM: 0.577719; PSNR_Y: 24.102519 dB; SSIM_Y: 0.603041.
+22-07-31 15:55:07.664 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000066.png - PSNR: 22.552847 dB; SSIM: 0.563186; PSNR_Y: 23.882827 dB; SSIM_Y: 0.588832.
+22-07-31 15:55:10.044 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000067.png - PSNR: 22.290735 dB; SSIM: 0.545426; PSNR_Y: 23.614717 dB; SSIM_Y: 0.571547.
+22-07-31 15:55:12.440 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000068.png - PSNR: 22.367095 dB; SSIM: 0.550546; PSNR_Y: 23.699696 dB; SSIM_Y: 0.577244.
+22-07-31 15:55:14.828 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000069.png - PSNR: 22.610752 dB; SSIM: 0.577709; PSNR_Y: 23.952673 dB; SSIM_Y: 0.603243.
+22-07-31 15:55:17.196 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000070.png - PSNR: 22.923840 dB; SSIM: 0.603919; PSNR_Y: 24.254990 dB; SSIM_Y: 0.625908.
+22-07-31 15:55:19.503 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000071.png - PSNR: 22.332325 dB; SSIM: 0.553574; PSNR_Y: 23.669692 dB; SSIM_Y: 0.580479.
+22-07-31 15:55:21.860 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000072.png - PSNR: 22.335366 dB; SSIM: 0.553801; PSNR_Y: 23.662618 dB; SSIM_Y: 0.580252.
+22-07-31 15:55:24.309 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000073.png - PSNR: 22.454610 dB; SSIM: 0.567807; PSNR_Y: 23.786344 dB; SSIM_Y: 0.593301.
+22-07-31 15:55:26.675 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000074.png - PSNR: 22.568694 dB; SSIM: 0.582768; PSNR_Y: 23.904318 dB; SSIM_Y: 0.607565.
+22-07-31 15:55:29.037 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000075.png - PSNR: 22.342865 dB; SSIM: 0.566236; PSNR_Y: 23.677103 dB; SSIM_Y: 0.591504.
+22-07-31 15:55:31.378 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000076.png - PSNR: 22.160618 dB; SSIM: 0.545978; PSNR_Y: 23.495561 dB; SSIM_Y: 0.572729.
+22-07-31 15:55:33.754 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000077.png - PSNR: 22.153053 dB; SSIM: 0.547915; PSNR_Y: 23.489749 dB; SSIM_Y: 0.574493.
+22-07-31 15:55:36.146 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000078.png - PSNR: 22.474796 dB; SSIM: 0.580934; PSNR_Y: 23.807344 dB; SSIM_Y: 0.605372.
+22-07-31 15:55:38.549 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000079.png - PSNR: 21.974231 dB; SSIM: 0.544257; PSNR_Y: 23.302095 dB; SSIM_Y: 0.569958.
+22-07-31 15:55:40.867 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000080.png - PSNR: 22.318856 dB; SSIM: 0.575426; PSNR_Y: 23.655295 dB; SSIM_Y: 0.599564.
+22-07-31 15:55:43.276 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000081.png - PSNR: 22.263566 dB; SSIM: 0.570494; PSNR_Y: 23.599317 dB; SSIM_Y: 0.594508.
+22-07-31 15:55:45.704 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000082.png - PSNR: 21.780501 dB; SSIM: 0.526204; PSNR_Y: 23.112712 dB; SSIM_Y: 0.552642.
+22-07-31 15:55:48.144 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000083.png - PSNR: 22.327715 dB; SSIM: 0.578481; PSNR_Y: 23.662382 dB; SSIM_Y: 0.602221.
+22-07-31 15:55:50.498 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000084.png - PSNR: 22.429825 dB; SSIM: 0.583039; PSNR_Y: 23.760321 dB; SSIM_Y: 0.606784.
+22-07-31 15:55:52.871 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000085.png - PSNR: 22.553416 dB; SSIM: 0.592617; PSNR_Y: 23.885077 dB; SSIM_Y: 0.615845.
+22-07-31 15:55:55.271 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000086.png - PSNR: 22.722587 dB; SSIM: 0.606731; PSNR_Y: 24.054813 dB; SSIM_Y: 0.628817.
+22-07-31 15:55:57.635 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000087.png - PSNR: 23.034572 dB; SSIM: 0.636097; PSNR_Y: 24.364865 dB; SSIM_Y: 0.655886.
+22-07-31 15:55:59.989 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000088.png - PSNR: 22.546792 dB; SSIM: 0.588643; PSNR_Y: 23.884681 dB; SSIM_Y: 0.613166.
+22-07-31 15:56:02.395 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000089.png - PSNR: 22.393224 dB; SSIM: 0.570786; PSNR_Y: 23.728981 dB; SSIM_Y: 0.596581.
+22-07-31 15:56:04.801 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000090.png - PSNR: 22.516347 dB; SSIM: 0.575747; PSNR_Y: 23.845147 dB; SSIM_Y: 0.601251.
+22-07-31 15:56:07.467 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000091.png - PSNR: 22.685993 dB; SSIM: 0.596417; PSNR_Y: 24.019657 dB; SSIM_Y: 0.621163.
+22-07-31 15:56:10.055 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000092.png - PSNR: 22.625226 dB; SSIM: 0.593392; PSNR_Y: 23.967504 dB; SSIM_Y: 0.619187.
+22-07-31 15:56:12.427 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000093.png - PSNR: 22.515140 dB; SSIM: 0.574560; PSNR_Y: 23.849928 dB; SSIM_Y: 0.600687.
+22-07-31 15:56:14.834 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000094.png - PSNR: 22.363201 dB; SSIM: 0.559716; PSNR_Y: 23.695578 dB; SSIM_Y: 0.586226.
+22-07-31 15:56:17.228 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000095.png - PSNR: 22.415724 dB; SSIM: 0.566320; PSNR_Y: 23.752994 dB; SSIM_Y: 0.592515.
+22-07-31 15:56:19.628 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000096.png - PSNR: 22.398169 dB; SSIM: 0.565474; PSNR_Y: 23.731886 dB; SSIM_Y: 0.591249.
+22-07-31 15:56:22.038 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000097.png - PSNR: 22.472184 dB; SSIM: 0.566206; PSNR_Y: 23.806392 dB; SSIM_Y: 0.592148.
+22-07-31 15:56:24.413 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000098.png - PSNR: 22.808565 dB; SSIM: 0.588587; PSNR_Y: 24.144748 dB; SSIM_Y: 0.613397.
+22-07-31 15:56:26.787 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1100000099.png - PSNR: 23.116605 dB; SSIM: 0.605164; PSNR_Y: 24.457414 dB; SSIM_Y: 0.630329.
+22-07-31 15:56:29.159 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000000.png - PSNR: 23.314067 dB; SSIM: 0.592890; PSNR_Y: 24.731109 dB; SSIM_Y: 0.623021.
+22-07-31 15:56:31.552 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000001.png - PSNR: 23.475785 dB; SSIM: 0.594987; PSNR_Y: 24.858691 dB; SSIM_Y: 0.625087.
+22-07-31 15:56:33.973 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000002.png - PSNR: 23.327657 dB; SSIM: 0.585064; PSNR_Y: 24.708630 dB; SSIM_Y: 0.616124.
+22-07-31 15:56:36.391 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000003.png - PSNR: 23.159344 dB; SSIM: 0.572224; PSNR_Y: 24.530110 dB; SSIM_Y: 0.603143.
+22-07-31 15:56:38.802 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000004.png - PSNR: 24.360108 dB; SSIM: 0.663228; PSNR_Y: 25.686873 dB; SSIM_Y: 0.684874.
+22-07-31 15:56:41.435 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000005.png - PSNR: 23.261399 dB; SSIM: 0.577123; PSNR_Y: 24.645581 dB; SSIM_Y: 0.608460.
+22-07-31 15:56:43.835 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000006.png - PSNR: 24.379540 dB; SSIM: 0.661100; PSNR_Y: 25.721738 dB; SSIM_Y: 0.683466.
+22-07-31 15:56:46.475 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000007.png - PSNR: 23.375530 dB; SSIM: 0.586162; PSNR_Y: 24.766962 dB; SSIM_Y: 0.617012.
+22-07-31 15:56:48.881 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000008.png - PSNR: 23.545884 dB; SSIM: 0.601055; PSNR_Y: 24.945860 dB; SSIM_Y: 0.631670.
+22-07-31 15:56:51.258 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000009.png - PSNR: 23.835603 dB; SSIM: 0.631671; PSNR_Y: 25.198729 dB; SSIM_Y: 0.657489.
+22-07-31 15:56:53.610 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000010.png - PSNR: 24.100965 dB; SSIM: 0.650696; PSNR_Y: 25.490777 dB; SSIM_Y: 0.676621.
+22-07-31 15:56:55.994 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000011.png - PSNR: 23.661975 dB; SSIM: 0.621925; PSNR_Y: 25.050941 dB; SSIM_Y: 0.650372.
+22-07-31 15:56:58.383 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000012.png - PSNR: 23.859138 dB; SSIM: 0.632085; PSNR_Y: 25.243553 dB; SSIM_Y: 0.659446.
+22-07-31 15:57:00.744 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000013.png - PSNR: 24.232478 dB; SSIM: 0.665439; PSNR_Y: 25.585997 dB; SSIM_Y: 0.689209.
+22-07-31 15:57:03.123 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000014.png - PSNR: 24.666342 dB; SSIM: 0.680340; PSNR_Y: 26.004551 dB; SSIM_Y: 0.701913.
+22-07-31 15:57:05.446 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000015.png - PSNR: 23.647373 dB; SSIM: 0.603198; PSNR_Y: 25.042946 dB; SSIM_Y: 0.633407.
+22-07-31 15:57:07.769 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000016.png - PSNR: 24.156861 dB; SSIM: 0.639604; PSNR_Y: 25.527419 dB; SSIM_Y: 0.665261.
+22-07-31 15:57:10.120 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000017.png - PSNR: 23.532127 dB; SSIM: 0.597345; PSNR_Y: 24.921921 dB; SSIM_Y: 0.627004.
+22-07-31 15:57:12.575 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000018.png - PSNR: 23.769184 dB; SSIM: 0.621541; PSNR_Y: 25.155519 dB; SSIM_Y: 0.648735.
+22-07-31 15:57:15.178 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000019.png - PSNR: 23.413911 dB; SSIM: 0.598078; PSNR_Y: 24.807940 dB; SSIM_Y: 0.626726.
+22-07-31 15:57:17.610 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000020.png - PSNR: 23.256541 dB; SSIM: 0.591294; PSNR_Y: 24.642412 dB; SSIM_Y: 0.619312.
+22-07-31 15:57:20.094 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000021.png - PSNR: 23.447604 dB; SSIM: 0.599842; PSNR_Y: 24.839097 dB; SSIM_Y: 0.627742.
+22-07-31 15:57:22.573 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000022.png - PSNR: 23.656175 dB; SSIM: 0.630723; PSNR_Y: 25.016588 dB; SSIM_Y: 0.654540.
+22-07-31 15:57:25.099 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000023.png - PSNR: 23.351774 dB; SSIM: 0.596038; PSNR_Y: 24.756979 dB; SSIM_Y: 0.624704.
+22-07-31 15:57:27.668 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000024.png - PSNR: 23.347636 dB; SSIM: 0.608391; PSNR_Y: 24.797113 dB; SSIM_Y: 0.636766.
+22-07-31 15:57:30.125 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000025.png - PSNR: 23.758870 dB; SSIM: 0.627125; PSNR_Y: 25.154083 dB; SSIM_Y: 0.653410.
+22-07-31 15:57:32.508 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000026.png - PSNR: 24.034184 dB; SSIM: 0.654055; PSNR_Y: 25.395433 dB; SSIM_Y: 0.676750.
+22-07-31 15:57:34.897 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000027.png - PSNR: 23.547230 dB; SSIM: 0.607765; PSNR_Y: 24.965883 dB; SSIM_Y: 0.635567.
+22-07-31 15:57:37.285 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000028.png - PSNR: 23.549347 dB; SSIM: 0.615965; PSNR_Y: 24.923045 dB; SSIM_Y: 0.641379.
+22-07-31 15:57:39.679 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000029.png - PSNR: 23.565605 dB; SSIM: 0.614362; PSNR_Y: 24.953653 dB; SSIM_Y: 0.640791.
+22-07-31 15:57:42.026 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000030.png - PSNR: 23.561135 dB; SSIM: 0.615510; PSNR_Y: 24.979183 dB; SSIM_Y: 0.642947.
+22-07-31 15:57:44.443 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000031.png - PSNR: 23.541470 dB; SSIM: 0.622375; PSNR_Y: 24.914981 dB; SSIM_Y: 0.647103.
+22-07-31 15:57:46.795 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000032.png - PSNR: 23.479916 dB; SSIM: 0.608267; PSNR_Y: 24.887694 dB; SSIM_Y: 0.635645.
+22-07-31 15:57:49.154 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000033.png - PSNR: 24.528409 dB; SSIM: 0.680396; PSNR_Y: 25.877633 dB; SSIM_Y: 0.700712.
+22-07-31 15:57:51.508 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000034.png - PSNR: 23.735266 dB; SSIM: 0.628067; PSNR_Y: 25.124592 dB; SSIM_Y: 0.654512.
+22-07-31 15:57:53.880 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000035.png - PSNR: 24.019410 dB; SSIM: 0.640495; PSNR_Y: 25.442000 dB; SSIM_Y: 0.667711.
+22-07-31 15:57:56.229 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000036.png - PSNR: 24.660379 dB; SSIM: 0.684074; PSNR_Y: 26.016612 dB; SSIM_Y: 0.704968.
+22-07-31 15:57:58.595 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000037.png - PSNR: 24.631786 dB; SSIM: 0.680534; PSNR_Y: 25.972607 dB; SSIM_Y: 0.701286.
+22-07-31 15:58:00.972 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000038.png - PSNR: 23.838348 dB; SSIM: 0.628362; PSNR_Y: 25.229710 dB; SSIM_Y: 0.655592.
+22-07-31 15:58:03.289 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000039.png - PSNR: 23.502166 dB; SSIM: 0.609169; PSNR_Y: 24.950385 dB; SSIM_Y: 0.639442.
+22-07-31 15:58:05.669 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000040.png - PSNR: 23.620528 dB; SSIM: 0.597391; PSNR_Y: 25.014034 dB; SSIM_Y: 0.627191.
+22-07-31 15:58:07.996 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000041.png - PSNR: 23.651857 dB; SSIM: 0.599032; PSNR_Y: 25.040125 dB; SSIM_Y: 0.628336.
+22-07-31 15:58:10.361 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000042.png - PSNR: 23.697759 dB; SSIM: 0.594947; PSNR_Y: 25.114310 dB; SSIM_Y: 0.626298.
+22-07-31 15:58:12.729 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000043.png - PSNR: 24.395394 dB; SSIM: 0.644620; PSNR_Y: 25.754039 dB; SSIM_Y: 0.670240.
+22-07-31 15:58:15.136 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000044.png - PSNR: 24.143864 dB; SSIM: 0.625760; PSNR_Y: 25.553166 dB; SSIM_Y: 0.654742.
+22-07-31 15:58:17.534 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000045.png - PSNR: 24.327381 dB; SSIM: 0.635067; PSNR_Y: 25.716304 dB; SSIM_Y: 0.662623.
+22-07-31 15:58:19.967 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000046.png - PSNR: 23.903665 dB; SSIM: 0.623146; PSNR_Y: 25.270134 dB; SSIM_Y: 0.650609.
+22-07-31 15:58:22.298 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000047.png - PSNR: 23.796743 dB; SSIM: 0.596524; PSNR_Y: 25.202316 dB; SSIM_Y: 0.627860.
+22-07-31 15:58:24.754 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000048.png - PSNR: 23.472882 dB; SSIM: 0.577192; PSNR_Y: 24.874574 dB; SSIM_Y: 0.608886.
+22-07-31 15:58:27.311 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000049.png - PSNR: 23.744628 dB; SSIM: 0.599244; PSNR_Y: 25.186704 dB; SSIM_Y: 0.630836.
+22-07-31 15:58:29.706 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000050.png - PSNR: 23.424815 dB; SSIM: 0.577315; PSNR_Y: 24.819776 dB; SSIM_Y: 0.608870.
+22-07-31 15:58:32.104 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000051.png - PSNR: 23.978936 dB; SSIM: 0.619366; PSNR_Y: 25.351376 dB; SSIM_Y: 0.646427.
+22-07-31 15:58:34.440 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000052.png - PSNR: 23.689813 dB; SSIM: 0.602881; PSNR_Y: 25.055085 dB; SSIM_Y: 0.631014.
+22-07-31 15:58:36.834 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000053.png - PSNR: 23.655405 dB; SSIM: 0.597107; PSNR_Y: 25.033699 dB; SSIM_Y: 0.625946.
+22-07-31 15:58:39.279 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000054.png - PSNR: 23.853804 dB; SSIM: 0.610478; PSNR_Y: 25.244571 dB; SSIM_Y: 0.639339.
+22-07-31 15:58:41.684 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000055.png - PSNR: 23.516391 dB; SSIM: 0.577263; PSNR_Y: 24.910881 dB; SSIM_Y: 0.608951.
+22-07-31 15:58:44.096 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000056.png - PSNR: 23.680137 dB; SSIM: 0.587102; PSNR_Y: 25.075767 dB; SSIM_Y: 0.618475.
+22-07-31 15:58:46.531 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000057.png - PSNR: 23.691787 dB; SSIM: 0.589458; PSNR_Y: 25.092064 dB; SSIM_Y: 0.620672.
+22-07-31 15:58:49.011 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000058.png - PSNR: 23.808534 dB; SSIM: 0.619218; PSNR_Y: 25.216440 dB; SSIM_Y: 0.647745.
+22-07-31 15:58:51.416 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000059.png - PSNR: 23.606155 dB; SSIM: 0.587712; PSNR_Y: 25.021436 dB; SSIM_Y: 0.618768.
+22-07-31 15:58:53.826 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000060.png - PSNR: 23.457007 dB; SSIM: 0.574863; PSNR_Y: 24.857089 dB; SSIM_Y: 0.605835.
+22-07-31 15:58:56.271 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000061.png - PSNR: 23.757372 dB; SSIM: 0.599408; PSNR_Y: 25.117684 dB; SSIM_Y: 0.627501.
+22-07-31 15:58:58.653 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000062.png - PSNR: 23.453677 dB; SSIM: 0.567026; PSNR_Y: 24.846191 dB; SSIM_Y: 0.598720.
+22-07-31 15:59:01.126 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000063.png - PSNR: 23.616571 dB; SSIM: 0.589490; PSNR_Y: 25.068920 dB; SSIM_Y: 0.621497.
+22-07-31 15:59:03.599 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000064.png - PSNR: 23.941776 dB; SSIM: 0.618351; PSNR_Y: 25.328938 dB; SSIM_Y: 0.646167.
+22-07-31 15:59:06.022 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000065.png - PSNR: 24.516353 dB; SSIM: 0.655709; PSNR_Y: 25.856443 dB; SSIM_Y: 0.678632.
+22-07-31 15:59:08.489 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000066.png - PSNR: 23.759426 dB; SSIM: 0.609369; PSNR_Y: 25.123764 dB; SSIM_Y: 0.636555.
+22-07-31 15:59:10.896 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000067.png - PSNR: 23.681003 dB; SSIM: 0.602803; PSNR_Y: 25.042399 dB; SSIM_Y: 0.629132.
+22-07-31 15:59:13.287 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000068.png - PSNR: 23.404737 dB; SSIM: 0.567645; PSNR_Y: 24.800042 dB; SSIM_Y: 0.598380.
+22-07-31 15:59:15.678 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000069.png - PSNR: 23.255023 dB; SSIM: 0.560499; PSNR_Y: 24.645282 dB; SSIM_Y: 0.591509.
+22-07-31 15:59:18.083 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000070.png - PSNR: 23.350056 dB; SSIM: 0.567257; PSNR_Y: 24.758316 dB; SSIM_Y: 0.598041.
+22-07-31 15:59:20.493 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000071.png - PSNR: 23.659627 dB; SSIM: 0.587123; PSNR_Y: 25.028397 dB; SSIM_Y: 0.615190.
+22-07-31 15:59:22.960 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000072.png - PSNR: 24.242387 dB; SSIM: 0.627409; PSNR_Y: 25.591919 dB; SSIM_Y: 0.652468.
+22-07-31 15:59:25.323 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000073.png - PSNR: 23.245503 dB; SSIM: 0.554093; PSNR_Y: 24.637996 dB; SSIM_Y: 0.585016.
+22-07-31 15:59:27.689 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000074.png - PSNR: 23.290218 dB; SSIM: 0.553246; PSNR_Y: 24.677448 dB; SSIM_Y: 0.584223.
+22-07-31 15:59:30.068 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000075.png - PSNR: 24.109656 dB; SSIM: 0.628066; PSNR_Y: 25.453560 dB; SSIM_Y: 0.652412.
+22-07-31 15:59:32.483 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000076.png - PSNR: 23.378907 dB; SSIM: 0.566130; PSNR_Y: 24.774929 dB; SSIM_Y: 0.596444.
+22-07-31 15:59:34.831 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000077.png - PSNR: 23.350366 dB; SSIM: 0.570115; PSNR_Y: 24.748062 dB; SSIM_Y: 0.600417.
+22-07-31 15:59:37.202 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000078.png - PSNR: 23.474484 dB; SSIM: 0.593427; PSNR_Y: 24.899936 dB; SSIM_Y: 0.622890.
+22-07-31 15:59:39.545 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000079.png - PSNR: 23.396646 dB; SSIM: 0.589341; PSNR_Y: 24.774993 dB; SSIM_Y: 0.617680.
+22-07-31 15:59:41.900 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000080.png - PSNR: 23.348268 dB; SSIM: 0.593625; PSNR_Y: 24.724286 dB; SSIM_Y: 0.620974.
+22-07-31 15:59:44.281 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000081.png - PSNR: 23.689030 dB; SSIM: 0.620741; PSNR_Y: 25.063788 dB; SSIM_Y: 0.648007.
+22-07-31 15:59:46.664 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000082.png - PSNR: 23.606324 dB; SSIM: 0.610313; PSNR_Y: 24.995843 dB; SSIM_Y: 0.639234.
+22-07-31 15:59:49.015 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000083.png - PSNR: 24.553925 dB; SSIM: 0.679262; PSNR_Y: 25.893091 dB; SSIM_Y: 0.701622.
+22-07-31 15:59:51.362 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000084.png - PSNR: 24.401413 dB; SSIM: 0.661569; PSNR_Y: 25.752015 dB; SSIM_Y: 0.685721.
+22-07-31 15:59:53.754 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000085.png - PSNR: 24.300564 dB; SSIM: 0.648618; PSNR_Y: 25.675296 dB; SSIM_Y: 0.674949.
+22-07-31 15:59:56.099 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000086.png - PSNR: 24.368329 dB; SSIM: 0.659745; PSNR_Y: 25.757795 dB; SSIM_Y: 0.686475.
+22-07-31 15:59:58.472 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000087.png - PSNR: 24.318813 dB; SSIM: 0.662944; PSNR_Y: 25.731960 dB; SSIM_Y: 0.690456.
+22-07-31 16:00:00.898 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000088.png - PSNR: 24.263468 dB; SSIM: 0.673408; PSNR_Y: 25.672761 dB; SSIM_Y: 0.700545.
+22-07-31 16:00:03.343 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000089.png - PSNR: 24.410390 dB; SSIM: 0.683230; PSNR_Y: 25.862049 dB; SSIM_Y: 0.711223.
+22-07-31 16:00:05.794 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000090.png - PSNR: 24.542765 dB; SSIM: 0.675897; PSNR_Y: 25.944624 dB; SSIM_Y: 0.702660.
+22-07-31 16:00:08.181 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000091.png - PSNR: 25.386748 dB; SSIM: 0.730697; PSNR_Y: 26.711268 dB; SSIM_Y: 0.750116.
+22-07-31 16:00:10.609 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000092.png - PSNR: 23.934898 dB; SSIM: 0.654374; PSNR_Y: 25.312710 dB; SSIM_Y: 0.681769.
+22-07-31 16:00:13.010 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000093.png - PSNR: 24.159956 dB; SSIM: 0.665133; PSNR_Y: 25.551593 dB; SSIM_Y: 0.692914.
+22-07-31 16:00:15.415 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000094.png - PSNR: 24.217399 dB; SSIM: 0.674090; PSNR_Y: 25.588093 dB; SSIM_Y: 0.700508.
+22-07-31 16:00:17.917 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000095.png - PSNR: 24.511210 dB; SSIM: 0.691170; PSNR_Y: 25.892010 dB; SSIM_Y: 0.716206.
+22-07-31 16:00:20.319 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000096.png - PSNR: 24.067898 dB; SSIM: 0.667490; PSNR_Y: 25.468230 dB; SSIM_Y: 0.695628.
+22-07-31 16:00:22.718 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000097.png - PSNR: 24.727943 dB; SSIM: 0.709630; PSNR_Y: 26.076036 dB; SSIM_Y: 0.732211.
+22-07-31 16:00:25.162 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000098.png - PSNR: 24.011714 dB; SSIM: 0.654931; PSNR_Y: 25.397316 dB; SSIM_Y: 0.682219.
+22-07-31 16:00:27.585 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_1500000099.png - PSNR: 23.882365 dB; SSIM: 0.640050; PSNR_Y: 25.266386 dB; SSIM_Y: 0.668028.
+22-07-31 16:00:29.984 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000000.png - PSNR: 26.870593 dB; SSIM: 0.766953; PSNR_Y: 28.201873 dB; SSIM_Y: 0.791004.
+22-07-31 16:00:32.382 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000001.png - PSNR: 27.221433 dB; SSIM: 0.784784; PSNR_Y: 28.551155 dB; SSIM_Y: 0.807237.
+22-07-31 16:00:34.741 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000002.png - PSNR: 26.829203 dB; SSIM: 0.766513; PSNR_Y: 28.164837 dB; SSIM_Y: 0.791608.
+22-07-31 16:00:37.150 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000003.png - PSNR: 26.662274 dB; SSIM: 0.748379; PSNR_Y: 28.000679 dB; SSIM_Y: 0.776027.
+22-07-31 16:00:39.557 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000004.png - PSNR: 26.719943 dB; SSIM: 0.749828; PSNR_Y: 28.066805 dB; SSIM_Y: 0.777801.
+22-07-31 16:00:41.999 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000005.png - PSNR: 26.483267 dB; SSIM: 0.745226; PSNR_Y: 27.820421 dB; SSIM_Y: 0.772816.
+22-07-31 16:00:44.393 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000006.png - PSNR: 26.594763 dB; SSIM: 0.748240; PSNR_Y: 27.932653 dB; SSIM_Y: 0.775907.
+22-07-31 16:00:46.809 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000007.png - PSNR: 26.199158 dB; SSIM: 0.715953; PSNR_Y: 27.539408 dB; SSIM_Y: 0.747459.
+22-07-31 16:00:49.159 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000008.png - PSNR: 26.143250 dB; SSIM: 0.712077; PSNR_Y: 27.488256 dB; SSIM_Y: 0.743936.
+22-07-31 16:00:51.507 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000009.png - PSNR: 26.331120 dB; SSIM: 0.719569; PSNR_Y: 27.695706 dB; SSIM_Y: 0.751233.
+22-07-31 16:00:53.888 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000010.png - PSNR: 26.559418 dB; SSIM: 0.738003; PSNR_Y: 27.897882 dB; SSIM_Y: 0.766635.
+22-07-31 16:00:56.330 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000011.png - PSNR: 26.297344 dB; SSIM: 0.721024; PSNR_Y: 27.655879 dB; SSIM_Y: 0.752367.
+22-07-31 16:00:58.777 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000012.png - PSNR: 26.282352 dB; SSIM: 0.717780; PSNR_Y: 27.626507 dB; SSIM_Y: 0.748968.
+22-07-31 16:01:01.190 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000013.png - PSNR: 26.434508 dB; SSIM: 0.723150; PSNR_Y: 27.784212 dB; SSIM_Y: 0.754483.
+22-07-31 16:01:03.583 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000014.png - PSNR: 26.362191 dB; SSIM: 0.734151; PSNR_Y: 27.722533 dB; SSIM_Y: 0.764089.
+22-07-31 16:01:05.933 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000015.png - PSNR: 27.336979 dB; SSIM: 0.776977; PSNR_Y: 28.677043 dB; SSIM_Y: 0.801565.
+22-07-31 16:01:08.343 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000016.png - PSNR: 27.689101 dB; SSIM: 0.790429; PSNR_Y: 29.031805 dB; SSIM_Y: 0.813736.
+22-07-31 16:01:10.782 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000017.png - PSNR: 26.876087 dB; SSIM: 0.751547; PSNR_Y: 28.223583 dB; SSIM_Y: 0.779966.
+22-07-31 16:01:13.178 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000018.png - PSNR: 26.643125 dB; SSIM: 0.732044; PSNR_Y: 27.998445 dB; SSIM_Y: 0.763184.
+22-07-31 16:01:15.525 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000019.png - PSNR: 26.600524 dB; SSIM: 0.731793; PSNR_Y: 27.960717 dB; SSIM_Y: 0.762766.
+22-07-31 16:01:18.091 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000020.png - PSNR: 27.341300 dB; SSIM: 0.761921; PSNR_Y: 28.725441 dB; SSIM_Y: 0.790466.
+22-07-31 16:01:20.480 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000021.png - PSNR: 27.651860 dB; SSIM: 0.776099; PSNR_Y: 29.004903 dB; SSIM_Y: 0.802050.
+22-07-31 16:01:22.840 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000022.png - PSNR: 26.740812 dB; SSIM: 0.720559; PSNR_Y: 28.097580 dB; SSIM_Y: 0.752840.
+22-07-31 16:01:25.216 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000023.png - PSNR: 26.357479 dB; SSIM: 0.706330; PSNR_Y: 27.708563 dB; SSIM_Y: 0.739501.
+22-07-31 16:01:27.586 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000024.png - PSNR: 26.779240 dB; SSIM: 0.733842; PSNR_Y: 28.135729 dB; SSIM_Y: 0.764740.
+22-07-31 16:01:29.980 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000025.png - PSNR: 27.325066 dB; SSIM: 0.767286; PSNR_Y: 28.671626 dB; SSIM_Y: 0.793207.
+22-07-31 16:01:32.353 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000026.png - PSNR: 26.466219 dB; SSIM: 0.726491; PSNR_Y: 27.809548 dB; SSIM_Y: 0.755875.
+22-07-31 16:01:34.685 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000027.png - PSNR: 26.384758 dB; SSIM: 0.723393; PSNR_Y: 27.732062 dB; SSIM_Y: 0.753467.
+22-07-31 16:01:37.050 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000028.png - PSNR: 26.306695 dB; SSIM: 0.742225; PSNR_Y: 27.665323 dB; SSIM_Y: 0.768913.
+22-07-31 16:01:39.424 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000029.png - PSNR: 26.060097 dB; SSIM: 0.728853; PSNR_Y: 27.399988 dB; SSIM_Y: 0.756695.
+22-07-31 16:01:41.766 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000030.png - PSNR: 25.992644 dB; SSIM: 0.727926; PSNR_Y: 27.327047 dB; SSIM_Y: 0.755988.
+22-07-31 16:01:44.058 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000031.png - PSNR: 26.118303 dB; SSIM: 0.737012; PSNR_Y: 27.460412 dB; SSIM_Y: 0.764573.
+22-07-31 16:01:46.398 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000032.png - PSNR: 26.437848 dB; SSIM: 0.755208; PSNR_Y: 27.779725 dB; SSIM_Y: 0.780499.
+22-07-31 16:01:48.768 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000033.png - PSNR: 26.224914 dB; SSIM: 0.744191; PSNR_Y: 27.573009 dB; SSIM_Y: 0.771012.
+22-07-31 16:01:51.173 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000034.png - PSNR: 25.898378 dB; SSIM: 0.724992; PSNR_Y: 27.243299 dB; SSIM_Y: 0.753446.
+22-07-31 16:01:53.606 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000035.png - PSNR: 26.356218 dB; SSIM: 0.756715; PSNR_Y: 27.709104 dB; SSIM_Y: 0.782506.
+22-07-31 16:01:56.100 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000036.png - PSNR: 26.127228 dB; SSIM: 0.750068; PSNR_Y: 27.477275 dB; SSIM_Y: 0.775431.
+22-07-31 16:01:58.521 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000037.png - PSNR: 25.650550 dB; SSIM: 0.720763; PSNR_Y: 26.985190 dB; SSIM_Y: 0.748702.
+22-07-31 16:02:01.253 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000038.png - PSNR: 26.497875 dB; SSIM: 0.754674; PSNR_Y: 27.838245 dB; SSIM_Y: 0.780022.
+22-07-31 16:02:03.898 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000039.png - PSNR: 25.531824 dB; SSIM: 0.710787; PSNR_Y: 26.865615 dB; SSIM_Y: 0.739306.
+22-07-31 16:02:06.431 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000040.png - PSNR: 26.433479 dB; SSIM: 0.770231; PSNR_Y: 27.764634 dB; SSIM_Y: 0.792585.
+22-07-31 16:02:08.875 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000041.png - PSNR: 25.579906 dB; SSIM: 0.709782; PSNR_Y: 26.930103 dB; SSIM_Y: 0.738600.
+22-07-31 16:02:11.331 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000042.png - PSNR: 25.820223 dB; SSIM: 0.732908; PSNR_Y: 27.192262 dB; SSIM_Y: 0.759674.
+22-07-31 16:02:13.869 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000043.png - PSNR: 25.660489 dB; SSIM: 0.710932; PSNR_Y: 27.010971 dB; SSIM_Y: 0.739381.
+22-07-31 16:02:16.386 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000044.png - PSNR: 25.819525 dB; SSIM: 0.718431; PSNR_Y: 27.181014 dB; SSIM_Y: 0.746624.
+22-07-31 16:02:18.920 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000045.png - PSNR: 25.582023 dB; SSIM: 0.705148; PSNR_Y: 26.936807 dB; SSIM_Y: 0.734159.
+22-07-31 16:02:21.455 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000046.png - PSNR: 25.603149 dB; SSIM: 0.704285; PSNR_Y: 26.954612 dB; SSIM_Y: 0.733409.
+22-07-31 16:02:23.912 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000047.png - PSNR: 25.767080 dB; SSIM: 0.715267; PSNR_Y: 27.123251 dB; SSIM_Y: 0.744107.
+22-07-31 16:02:26.335 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000048.png - PSNR: 26.065010 dB; SSIM: 0.736147; PSNR_Y: 27.415514 dB; SSIM_Y: 0.762730.
+22-07-31 16:02:28.769 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000049.png - PSNR: 26.015376 dB; SSIM: 0.737462; PSNR_Y: 27.347168 dB; SSIM_Y: 0.763880.
+22-07-31 16:02:31.272 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000050.png - PSNR: 26.301757 dB; SSIM: 0.748872; PSNR_Y: 27.661290 dB; SSIM_Y: 0.774953.
+22-07-31 16:02:33.720 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000051.png - PSNR: 25.933219 dB; SSIM: 0.719268; PSNR_Y: 27.286102 dB; SSIM_Y: 0.748279.
+22-07-31 16:02:36.147 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000052.png - PSNR: 26.566434 dB; SSIM: 0.751426; PSNR_Y: 27.917880 dB; SSIM_Y: 0.777516.
+22-07-31 16:02:38.522 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000053.png - PSNR: 26.059672 dB; SSIM: 0.719537; PSNR_Y: 27.409532 dB; SSIM_Y: 0.748927.
+22-07-31 16:02:40.956 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000054.png - PSNR: 26.086768 dB; SSIM: 0.725863; PSNR_Y: 27.421974 dB; SSIM_Y: 0.753533.
+22-07-31 16:02:43.421 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000055.png - PSNR: 25.939998 dB; SSIM: 0.707453; PSNR_Y: 27.280930 dB; SSIM_Y: 0.737137.
+22-07-31 16:02:45.794 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000056.png - PSNR: 26.260888 dB; SSIM: 0.738157; PSNR_Y: 27.600449 dB; SSIM_Y: 0.763938.
+22-07-31 16:02:48.177 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000057.png - PSNR: 25.593674 dB; SSIM: 0.692374; PSNR_Y: 26.936547 dB; SSIM_Y: 0.722700.
+22-07-31 16:02:50.596 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000058.png - PSNR: 26.393089 dB; SSIM: 0.751464; PSNR_Y: 27.730964 dB; SSIM_Y: 0.775363.
+22-07-31 16:02:52.946 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000059.png - PSNR: 26.866184 dB; SSIM: 0.770072; PSNR_Y: 28.199199 dB; SSIM_Y: 0.792259.
+22-07-31 16:02:55.355 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000060.png - PSNR: 26.328382 dB; SSIM: 0.739240; PSNR_Y: 27.658634 dB; SSIM_Y: 0.764427.
+22-07-31 16:02:57.783 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000061.png - PSNR: 26.142480 dB; SSIM: 0.725076; PSNR_Y: 27.487548 dB; SSIM_Y: 0.752898.
+22-07-31 16:03:00.161 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000062.png - PSNR: 27.137318 dB; SSIM: 0.780934; PSNR_Y: 28.466568 dB; SSIM_Y: 0.802798.
+22-07-31 16:03:02.557 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000063.png - PSNR: 26.926776 dB; SSIM: 0.756038; PSNR_Y: 28.287263 dB; SSIM_Y: 0.782639.
+22-07-31 16:03:04.939 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000064.png - PSNR: 26.217816 dB; SSIM: 0.727911; PSNR_Y: 27.550942 dB; SSIM_Y: 0.756431.
+22-07-31 16:03:07.298 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000065.png - PSNR: 27.215791 dB; SSIM: 0.778372; PSNR_Y: 28.550145 dB; SSIM_Y: 0.801926.
+22-07-31 16:03:09.724 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000066.png - PSNR: 26.556622 dB; SSIM: 0.747107; PSNR_Y: 27.887455 dB; SSIM_Y: 0.773155.
+22-07-31 16:03:12.078 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000067.png - PSNR: 26.684759 dB; SSIM: 0.750045; PSNR_Y: 28.014589 dB; SSIM_Y: 0.776599.
+22-07-31 16:03:14.381 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000068.png - PSNR: 26.213610 dB; SSIM: 0.711681; PSNR_Y: 27.555195 dB; SSIM_Y: 0.742484.
+22-07-31 16:03:16.698 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000069.png - PSNR: 26.526030 dB; SSIM: 0.732060; PSNR_Y: 27.864798 dB; SSIM_Y: 0.760088.
+22-07-31 16:03:19.051 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000070.png - PSNR: 27.076082 dB; SSIM: 0.770950; PSNR_Y: 28.409090 dB; SSIM_Y: 0.794571.
+22-07-31 16:03:21.355 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000071.png - PSNR: 26.743266 dB; SSIM: 0.743061; PSNR_Y: 28.091540 dB; SSIM_Y: 0.769929.
+22-07-31 16:03:23.730 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000072.png - PSNR: 26.264629 dB; SSIM: 0.714851; PSNR_Y: 27.610039 dB; SSIM_Y: 0.744393.
+22-07-31 16:03:26.092 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000073.png - PSNR: 26.393454 dB; SSIM: 0.733893; PSNR_Y: 27.742841 dB; SSIM_Y: 0.760921.
+22-07-31 16:03:28.423 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000074.png - PSNR: 26.383779 dB; SSIM: 0.734388; PSNR_Y: 27.725057 dB; SSIM_Y: 0.760628.
+22-07-31 16:03:30.788 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000075.png - PSNR: 26.778699 dB; SSIM: 0.768048; PSNR_Y: 28.113319 dB; SSIM_Y: 0.790094.
+22-07-31 16:03:33.099 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000076.png - PSNR: 26.920914 dB; SSIM: 0.770166; PSNR_Y: 28.252056 dB; SSIM_Y: 0.791924.
+22-07-31 16:03:35.430 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000077.png - PSNR: 26.311103 dB; SSIM: 0.738684; PSNR_Y: 27.660722 dB; SSIM_Y: 0.764609.
+22-07-31 16:03:37.769 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000078.png - PSNR: 26.993818 dB; SSIM: 0.775307; PSNR_Y: 28.323767 dB; SSIM_Y: 0.796872.
+22-07-31 16:03:40.114 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000079.png - PSNR: 25.843012 dB; SSIM: 0.710108; PSNR_Y: 27.187240 dB; SSIM_Y: 0.739526.
+22-07-31 16:03:42.417 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000080.png - PSNR: 26.467525 dB; SSIM: 0.745605; PSNR_Y: 27.828889 dB; SSIM_Y: 0.772172.
+22-07-31 16:03:44.814 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000081.png - PSNR: 26.202616 dB; SSIM: 0.727877; PSNR_Y: 27.555632 dB; SSIM_Y: 0.756369.
+22-07-31 16:03:47.166 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000082.png - PSNR: 25.743212 dB; SSIM: 0.697824; PSNR_Y: 27.080581 dB; SSIM_Y: 0.728195.
+22-07-31 16:03:49.551 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000083.png - PSNR: 26.076030 dB; SSIM: 0.717539; PSNR_Y: 27.408727 dB; SSIM_Y: 0.745670.
+22-07-31 16:03:51.889 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000084.png - PSNR: 25.833239 dB; SSIM: 0.701098; PSNR_Y: 27.180825 dB; SSIM_Y: 0.731136.
+22-07-31 16:03:54.249 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000085.png - PSNR: 26.886174 dB; SSIM: 0.768553; PSNR_Y: 28.214620 dB; SSIM_Y: 0.790305.
+22-07-31 16:03:56.611 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000086.png - PSNR: 25.672880 dB; SSIM: 0.693000; PSNR_Y: 27.015386 dB; SSIM_Y: 0.723464.
+22-07-31 16:03:58.935 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000087.png - PSNR: 26.734358 dB; SSIM: 0.764725; PSNR_Y: 28.069006 dB; SSIM_Y: 0.787316.
+22-07-31 16:04:01.275 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000088.png - PSNR: 25.674305 dB; SSIM: 0.694131; PSNR_Y: 27.016140 dB; SSIM_Y: 0.724451.
+22-07-31 16:04:03.592 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000089.png - PSNR: 25.873939 dB; SSIM: 0.699468; PSNR_Y: 27.223751 dB; SSIM_Y: 0.729702.
+22-07-31 16:04:05.945 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000090.png - PSNR: 26.005594 dB; SSIM: 0.712668; PSNR_Y: 27.341332 dB; SSIM_Y: 0.741793.
+22-07-31 16:04:08.247 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000091.png - PSNR: 25.964710 dB; SSIM: 0.711582; PSNR_Y: 27.301292 dB; SSIM_Y: 0.741276.
+22-07-31 16:04:10.612 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000092.png - PSNR: 25.817563 dB; SSIM: 0.698019; PSNR_Y: 27.151672 dB; SSIM_Y: 0.729040.
+22-07-31 16:04:12.936 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000093.png - PSNR: 25.886530 dB; SSIM: 0.701240; PSNR_Y: 27.230265 dB; SSIM_Y: 0.732762.
+22-07-31 16:04:15.248 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000094.png - PSNR: 26.262189 dB; SSIM: 0.726875; PSNR_Y: 27.592465 dB; SSIM_Y: 0.755484.
+22-07-31 16:04:17.620 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000095.png - PSNR: 27.084263 dB; SSIM: 0.766691; PSNR_Y: 28.417131 dB; SSIM_Y: 0.791017.
+22-07-31 16:04:19.926 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000096.png - PSNR: 26.071186 dB; SSIM: 0.702542; PSNR_Y: 27.410010 dB; SSIM_Y: 0.734334.
+22-07-31 16:04:22.267 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000097.png - PSNR: 25.933509 dB; SSIM: 0.696277; PSNR_Y: 27.271599 dB; SSIM_Y: 0.728213.
+22-07-31 16:04:24.586 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000098.png - PSNR: 26.276197 dB; SSIM: 0.710703; PSNR_Y: 27.622903 dB; SSIM_Y: 0.741672.
+22-07-31 16:04:26.885 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_2000000099.png - PSNR: 26.634859 dB; SSIM: 0.737058; PSNR_Y: 27.984684 dB; SSIM_Y: 0.764978.
+22-07-31 16:04:26.887 - INFO: ----Average PSNR/SSIM results for urban100----
+	PSNR: 24.820906 dB; SSIM: 0.663753
+
+22-07-31 16:04:26.887 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 26.185808 dB; SSIM_Y: 0.692114
+

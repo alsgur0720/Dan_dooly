@@ -1,0 +1,50 @@
+22-08-09 19:39:44.500 - INFO:   name: DANx4_setting1
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  ksize: 21
+  crop_border: None
+  gpu_ids: [0]
+  pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+  degradation:[
+    random_kernel: True
+    ksize: 21
+    code_length: 10
+    sig_min: 0.7
+    sig_max: 10
+    rate_iso: 0
+    random_disturb: False
+  ]
+  datasets:[
+    test4:[
+      name: REDS
+      mode: LQGT
+      dataroot_GT: D:\REDS4\val
+      dataroot_LQ: C:\Users\Dooly\Desktop\MaNet_Origin2\MANet\results\lr_image 9,5,7854\toy_dataset1
+      phase: test4
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: DAN
+    setting:[
+      nf: 64
+      nb: 10
+      ng: 5
+      input_para: 10
+      loop: 4
+      kernel_size: 21
+      pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+      upscale: 4
+    ]
+  ]
+  path:[
+    pretrain_model_G: C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth
+    root: C:\Users\Dooly\Desktop\DAN\DAN
+    results_root: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+    log: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+  ]
+  is_train: False
+

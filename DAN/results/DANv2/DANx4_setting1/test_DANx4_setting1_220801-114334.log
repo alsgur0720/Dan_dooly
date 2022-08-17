@@ -1,0 +1,775 @@
+22-08-01 11:43:34.263 - INFO:   name: DANx4_setting1
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+  degradation:[
+    random_kernel: True
+    ksize: 21
+    code_length: 10
+    sig_min: 0.7
+    sig_max: 10
+    rate_iso: 0
+    random_disturb: False
+  ]
+  datasets:[
+    test4:[
+      name: urban100
+      mode: GT
+      dataroot_GT: C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val
+      dataroot_LQ: /data/urban100/x4LRblur.lmdb
+      phase: test4
+      scale: 4
+      data_type: lmdb
+    ]
+  ]
+  network_G:[
+    which_model_G: DAN
+    setting:[
+      nf: 64
+      nb: 10
+      ng: 5
+      input_para: 10
+      loop: 4
+      kernel_size: 21
+      pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+      upscale: 4
+    ]
+  ]
+  path:[
+    pretrain_model_G: C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth
+    root: C:\Users\Dooly\Desktop\DAN\DAN
+    results_root: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+    log: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+  ]
+  is_train: False
+
+22-08-01 11:43:34.276 - INFO: Dataset [GTDataset - urban100] is created.
+22-08-01 11:43:34.277 - INFO: Number of test images in [urban100]: 800
+22-08-01 11:43:35.720 - INFO: Network G structure: DataParallel - DAN, with parameters: 4,707,708
+22-08-01 11:43:35.720 - INFO: DAN(
+  (Restorer): Restorer(
+    (head1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (head2): Conv2d(10, 64, kernel_size=(1, 1), stride=(1, 1))
+    (body): Sequential(
+      (0): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (1): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (2): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (3): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (4): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+    )
+    (fusion): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (upscale): Sequential(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+      (4): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (Estimator): Estimator(
+    (head_LR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    )
+    (head_HR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(17, 17), stride=(4, 4), padding=(8, 8))
+    )
+    (body): DPCG(
+      (body): Sequential(
+        (0): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+    )
+    (tail): Sequential(
+      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): AdaptiveAvgPool2d(output_size=1)
+      (2): Conv2d(64, 441, kernel_size=(1, 1), stride=(1, 1))
+      (3): Softmax(dim=1)
+    )
+  )
+)
+22-08-01 11:43:35.771 - INFO: Loading model for G [C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth] ...
+22-08-01 11:43:35.865 - INFO: Model [B_Model] is created.
+22-08-01 11:43:35.865 - INFO: 
+Testing [urban100]...
+22-08-01 11:43:39.848 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000000.png - PSNR: 26.224233 dB; SSIM: 0.707546; PSNR_Y: 27.631130 dB; SSIM_Y: 0.740214.
+22-08-01 11:43:42.188 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000000.png.png - PSNR: 31.787982 dB; SSIM: 0.922683; PSNR_Y: 33.345140 dB; SSIM_Y: 0.935019.
+22-08-01 11:43:44.573 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000001.png - PSNR: 27.008946 dB; SSIM: 0.738711; PSNR_Y: 28.372190 dB; SSIM_Y: 0.766813.
+22-08-01 11:43:46.877 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000001.png.png - PSNR: 32.154669 dB; SSIM: 0.929083; PSNR_Y: 33.661820 dB; SSIM_Y: 0.940344.
+22-08-01 11:43:49.239 - INFO: img:C:\Users\Dooly\Desktop\DAN\DAN\codes\config\DANv2\data\val\val_0train_000000002.png - PSNR: 26.170286 dB; SSIM: 0.683498; PSNR_Y: 27.579323 dB; SSIM_Y: 0.719194.

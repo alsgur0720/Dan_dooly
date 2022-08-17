@@ -1,0 +1,930 @@
+22-08-06 21:59:14.059 - INFO:   name: DANx4_setting1
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+  degradation:[
+    random_kernel: True
+    ksize: 21
+    code_length: 10
+    sig_min: 0.7
+    sig_max: 10
+    rate_iso: 0
+    random_disturb: False
+  ]
+  datasets:[
+    test4:[
+      name: REDS
+      mode: LQGT
+      dataroot_GT: D:\REDS4\val
+      dataroot_LQ: C:\Users\Dooly\Desktop\MaNet_Origin2\MANet\results\lr_image 9,5,7854\toy_dataset1
+      phase: test4
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: DAN
+    setting:[
+      nf: 64
+      nb: 10
+      ng: 5
+      input_para: 10
+      loop: 4
+      kernel_size: 21
+      pca_matrix_path: ../../../pca_matrix/DANv2/pca_matrix.pth
+      upscale: 4
+    ]
+  ]
+  path:[
+    pretrain_model_G: C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth
+    root: C:\Users\Dooly\Desktop\DAN\DAN
+    results_root: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+    log: C:\Users\Dooly\Desktop\DAN\DAN\results\DANv2\DANx4_setting1
+  ]
+  is_train: False
+
+22-08-06 21:59:14.073 - INFO: Dataset [LQGTDataset - REDS] is created.
+22-08-06 21:59:14.073 - INFO: Number of test images in [REDS]: 400
+22-08-06 21:59:15.513 - INFO: Network G structure: DataParallel - DAN, with parameters: 4,707,708
+22-08-06 21:59:15.514 - INFO: DAN(
+  (Restorer): Restorer(
+    (head1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (head2): Conv2d(10, 64, kernel_size=(1, 1), stride=(1, 1))
+    (body): Sequential(
+      (0): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (1): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (2): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (3): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+      (4): DPCG(
+        (body): Sequential(
+          (0): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (2): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (3): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (4): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (5): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (6): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (7): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (8): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (9): DPCB(
+            (body1): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            )
+            (body2): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+              (1): LeakyReLU(negative_slope=0.2, inplace=True)
+              (2): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+        )
+      )
+    )
+    (fusion): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (upscale): Sequential(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+      (4): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (Estimator): Estimator(
+    (head_LR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    )
+    (head_HR): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(17, 17), stride=(4, 4), padding=(8, 8))
+    )
+    (body): DPCG(
+      (body): Sequential(
+        (0): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): DPCB(
+          (body1): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+          (body2): Sequential(
+            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+            (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+    )
+    (tail): Sequential(
+      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): AdaptiveAvgPool2d(output_size=1)
+      (2): Conv2d(64, 441, kernel_size=(1, 1), stride=(1, 1))
+      (3): Softmax(dim=1)
+    )
+  )
+)
+22-08-06 21:59:15.565 - INFO: Loading model for G [C:\Users\Dooly\Desktop\DAN\DAN\experiments\DANv2\dab\models\202500_G.pth] ...
+22-08-06 21:59:15.682 - INFO: Model [B_Model] is created.
+22-08-06 21:59:15.682 - INFO: 
+Testing [REDS]...
+22-08-06 21:59:19.553 - INFO: img:D:\REDS4\val\val_0train_000000000.png - PSNR: 22.912844 dB; SSIM: 0.619708; PSNR_Y: 24.314383 dB; SSIM_Y: 0.657573.
+22-08-06 21:59:21.862 - INFO: img:D:\REDS4\val\val_0train_000000001.png - PSNR: 22.922855 dB; SSIM: 0.621267; PSNR_Y: 24.322723 dB; SSIM_Y: 0.658742.
+22-08-06 21:59:24.121 - INFO: img:D:\REDS4\val\val_0train_000000002.png - PSNR: 22.938874 dB; SSIM: 0.619150; PSNR_Y: 24.337776 dB; SSIM_Y: 0.656847.
+22-08-06 21:59:26.375 - INFO: img:D:\REDS4\val\val_0train_000000003.png - PSNR: 22.986859 dB; SSIM: 0.613127; PSNR_Y: 24.382530 dB; SSIM_Y: 0.651749.
+22-08-06 21:59:28.714 - INFO: img:D:\REDS4\val\val_0train_000000004.png - PSNR: 23.198905 dB; SSIM: 0.613520; PSNR_Y: 24.591917 dB; SSIM_Y: 0.653182.
+22-08-06 21:59:30.949 - INFO: img:D:\REDS4\val\val_0train_000000005.png - PSNR: 23.262364 dB; SSIM: 0.603836; PSNR_Y: 24.647051 dB; SSIM_Y: 0.644708.
+22-08-06 21:59:33.160 - INFO: img:D:\REDS4\val\val_0train_000000006.png - PSNR: 23.474890 dB; SSIM: 0.614598; PSNR_Y: 24.866196 dB; SSIM_Y: 0.655651.
+22-08-06 21:59:35.389 - INFO: img:D:\REDS4\val\val_0train_000000007.png - PSNR: 23.193756 dB; SSIM: 0.609497; PSNR_Y: 24.586343 dB; SSIM_Y: 0.649633.
+22-08-06 21:59:37.617 - INFO: img:D:\REDS4\val\val_0train_000000008.png - PSNR: 23.058583 dB; SSIM: 0.610343; PSNR_Y: 24.456326 dB; SSIM_Y: 0.649706.
+22-08-06 21:59:39.867 - INFO: img:D:\REDS4\val\val_0train_000000009.png - PSNR: 22.886711 dB; SSIM: 0.612958; PSNR_Y: 24.293563 dB; SSIM_Y: 0.650909.
+22-08-06 21:59:42.078 - INFO: img:D:\REDS4\val\val_0train_000000010.png - PSNR: 22.685555 dB; SSIM: 0.607410; PSNR_Y: 24.095756 dB; SSIM_Y: 0.644520.
+22-08-06 21:59:44.307 - INFO: img:D:\REDS4\val\val_0train_000000011.png - PSNR: 22.825773 dB; SSIM: 0.606691; PSNR_Y: 24.233974 dB; SSIM_Y: 0.644466.
+22-08-06 21:59:46.500 - INFO: img:D:\REDS4\val\val_0train_000000012.png - PSNR: 22.950362 dB; SSIM: 0.604238; PSNR_Y: 24.362933 dB; SSIM_Y: 0.643399.
+22-08-06 21:59:48.744 - INFO: img:D:\REDS4\val\val_0train_000000013.png - PSNR: 22.885100 dB; SSIM: 0.599978; PSNR_Y: 24.293315 dB; SSIM_Y: 0.639127.
+22-08-06 21:59:50.986 - INFO: img:D:\REDS4\val\val_0train_000000014.png - PSNR: 22.790740 dB; SSIM: 0.602750; PSNR_Y: 24.198520 dB; SSIM_Y: 0.641229.
+22-08-06 21:59:53.270 - INFO: img:D:\REDS4\val\val_0train_000000015.png - PSNR: 22.744147 dB; SSIM: 0.603303; PSNR_Y: 24.149052 dB; SSIM_Y: 0.641574.
+22-08-06 21:59:55.494 - INFO: img:D:\REDS4\val\val_0train_000000016.png - PSNR: 22.766854 dB; SSIM: 0.603401; PSNR_Y: 24.168005 dB; SSIM_Y: 0.641982.
+22-08-06 21:59:57.775 - INFO: img:D:\REDS4\val\val_0train_000000017.png - PSNR: 22.827704 dB; SSIM: 0.605181; PSNR_Y: 24.226710 dB; SSIM_Y: 0.644140.
+22-08-06 21:59:59.985 - INFO: img:D:\REDS4\val\val_0train_000000018.png - PSNR: 23.045506 dB; SSIM: 0.609428; PSNR_Y: 24.444089 dB; SSIM_Y: 0.648942.
+22-08-06 22:00:02.306 - INFO: img:D:\REDS4\val\val_0train_000000019.png - PSNR: 23.127852 dB; SSIM: 0.606298; PSNR_Y: 24.518713 dB; SSIM_Y: 0.646451.
+22-08-06 22:00:04.652 - INFO: img:D:\REDS4\val\val_0train_000000020.png - PSNR: 23.279158 dB; SSIM: 0.603722; PSNR_Y: 24.669196 dB; SSIM_Y: 0.644819.
+22-08-06 22:00:06.898 - INFO: img:D:\REDS4\val\val_0train_000000021.png - PSNR: 23.371318 dB; SSIM: 0.601867; PSNR_Y: 24.758336 dB; SSIM_Y: 0.643564.
+22-08-06 22:00:09.137 - INFO: img:D:\REDS4\val\val_0train_000000022.png - PSNR: 23.224000 dB; SSIM: 0.600863; PSNR_Y: 24.618381 dB; SSIM_Y: 0.641994.
+22-08-06 22:00:11.435 - INFO: img:D:\REDS4\val\val_0train_000000023.png - PSNR: 23.072328 dB; SSIM: 0.599441; PSNR_Y: 24.477540 dB; SSIM_Y: 0.640050.
+22-08-06 22:00:13.709 - INFO: img:D:\REDS4\val\val_0train_000000024.png - PSNR: 22.976948 dB; SSIM: 0.603023; PSNR_Y: 24.392503 dB; SSIM_Y: 0.643030.
+22-08-06 22:00:15.971 - INFO: img:D:\REDS4\val\val_0train_000000025.png - PSNR: 22.862314 dB; SSIM: 0.605158; PSNR_Y: 24.273118 dB; SSIM_Y: 0.644261.
+22-08-06 22:00:18.160 - INFO: img:D:\REDS4\val\val_0train_000000026.png - PSNR: 22.794898 dB; SSIM: 0.605026; PSNR_Y: 24.205092 dB; SSIM_Y: 0.643754.
+22-08-06 22:00:20.365 - INFO: img:D:\REDS4\val\val_0train_000000027.png - PSNR: 22.812394 dB; SSIM: 0.608043; PSNR_Y: 24.220140 dB; SSIM_Y: 0.646751.
+22-08-06 22:00:22.567 - INFO: img:D:\REDS4\val\val_0train_000000028.png - PSNR: 22.908593 dB; SSIM: 0.610368; PSNR_Y: 24.309136 dB; SSIM_Y: 0.649732.
+22-08-06 22:00:24.799 - INFO: img:D:\REDS4\val\val_0train_000000029.png - PSNR: 22.986411 dB; SSIM: 0.613013; PSNR_Y: 24.384137 dB; SSIM_Y: 0.652512.
+22-08-06 22:00:27.034 - INFO: img:D:\REDS4\val\val_0train_000000030.png - PSNR: 22.982787 dB; SSIM: 0.614781; PSNR_Y: 24.390265 dB; SSIM_Y: 0.654253.
+22-08-06 22:00:29.295 - INFO: img:D:\REDS4\val\val_0train_000000031.png - PSNR: 23.009647 dB; SSIM: 0.620092; PSNR_Y: 24.413576 dB; SSIM_Y: 0.658970.
+22-08-06 22:00:31.528 - INFO: img:D:\REDS4\val\val_0train_000000032.png - PSNR: 22.952262 dB; SSIM: 0.620617; PSNR_Y: 24.353927 dB; SSIM_Y: 0.659144.
+22-08-06 22:00:33.847 - INFO: img:D:\REDS4\val\val_0train_000000033.png - PSNR: 23.036065 dB; SSIM: 0.623889; PSNR_Y: 24.434115 dB; SSIM_Y: 0.662719.
+22-08-06 22:00:36.067 - INFO: img:D:\REDS4\val\val_0train_000000034.png - PSNR: 22.962835 dB; SSIM: 0.624338; PSNR_Y: 24.362327 dB; SSIM_Y: 0.662966.
+22-08-06 22:00:38.289 - INFO: img:D:\REDS4\val\val_0train_000000035.png - PSNR: 22.914027 dB; SSIM: 0.624750; PSNR_Y: 24.312221 dB; SSIM_Y: 0.662949.
+22-08-06 22:00:40.466 - INFO: img:D:\REDS4\val\val_0train_000000036.png - PSNR: 22.949325 dB; SSIM: 0.628583; PSNR_Y: 24.354671 dB; SSIM_Y: 0.667107.
+22-08-06 22:00:42.716 - INFO: img:D:\REDS4\val\val_0train_000000037.png - PSNR: 22.956984 dB; SSIM: 0.628011; PSNR_Y: 24.357343 dB; SSIM_Y: 0.666863.
+22-08-06 22:00:44.943 - INFO: img:D:\REDS4\val\val_0train_000000038.png - PSNR: 22.929474 dB; SSIM: 0.634017; PSNR_Y: 24.330793 dB; SSIM_Y: 0.672125.
+22-08-06 22:00:47.120 - INFO: img:D:\REDS4\val\val_0train_000000039.png - PSNR: 22.965559 dB; SSIM: 0.643103; PSNR_Y: 24.373906 dB; SSIM_Y: 0.680398.
+22-08-06 22:00:49.320 - INFO: img:D:\REDS4\val\val_0train_000000040.png - PSNR: 22.967168 dB; SSIM: 0.645650; PSNR_Y: 24.379429 dB; SSIM_Y: 0.682657.
+22-08-06 22:00:51.489 - INFO: img:D:\REDS4\val\val_0train_000000041.png - PSNR: 23.024417 dB; SSIM: 0.647529; PSNR_Y: 24.438872 dB; SSIM_Y: 0.684615.
+22-08-06 22:00:53.724 - INFO: img:D:\REDS4\val\val_0train_000000042.png - PSNR: 23.129382 dB; SSIM: 0.649862; PSNR_Y: 24.549761 dB; SSIM_Y: 0.687805.
+22-08-06 22:00:55.992 - INFO: img:D:\REDS4\val\val_0train_000000043.png - PSNR: 23.219447 dB; SSIM: 0.646632; PSNR_Y: 24.630435 dB; SSIM_Y: 0.685206.
+22-08-06 22:00:58.219 - INFO: img:D:\REDS4\val\val_0train_000000044.png - PSNR: 23.257959 dB; SSIM: 0.641147; PSNR_Y: 24.663508 dB; SSIM_Y: 0.680165.
+22-08-06 22:01:00.436 - INFO: img:D:\REDS4\val\val_0train_000000045.png - PSNR: 23.288458 dB; SSIM: 0.635101; PSNR_Y: 24.694844 dB; SSIM_Y: 0.674471.
+22-08-06 22:01:02.679 - INFO: img:D:\REDS4\val\val_0train_000000046.png - PSNR: 23.316874 dB; SSIM: 0.628062; PSNR_Y: 24.728239 dB; SSIM_Y: 0.668059.
+22-08-06 22:01:04.907 - INFO: img:D:\REDS4\val\val_0train_000000047.png - PSNR: 23.266543 dB; SSIM: 0.627444; PSNR_Y: 24.680060 dB; SSIM_Y: 0.667094.
+22-08-06 22:01:07.146 - INFO: img:D:\REDS4\val\val_0train_000000048.png - PSNR: 23.193572 dB; SSIM: 0.633374; PSNR_Y: 24.622210 dB; SSIM_Y: 0.672804.
+22-08-06 22:01:09.372 - INFO: img:D:\REDS4\val\val_0train_000000049.png - PSNR: 23.059434 dB; SSIM: 0.630808; PSNR_Y: 24.485242 dB; SSIM_Y: 0.669622.
+22-08-06 22:01:11.553 - INFO: img:D:\REDS4\val\val_0train_000000050.png - PSNR: 22.881307 dB; SSIM: 0.630706; PSNR_Y: 24.307826 dB; SSIM_Y: 0.668637.
+22-08-06 22:01:13.838 - INFO: img:D:\REDS4\val\val_0train_000000051.png - PSNR: 22.774847 dB; SSIM: 0.639011; PSNR_Y: 24.204085 dB; SSIM_Y: 0.675653.
+22-08-06 22:01:16.070 - INFO: img:D:\REDS4\val\val_0train_000000052.png - PSNR: 22.668824 dB; SSIM: 0.640641; PSNR_Y: 24.096663 dB; SSIM_Y: 0.676307.
+22-08-06 22:01:18.246 - INFO: img:D:\REDS4\val\val_0train_000000053.png - PSNR: 22.538079 dB; SSIM: 0.638310; PSNR_Y: 23.962680 dB; SSIM_Y: 0.673436.
+22-08-06 22:01:20.432 - INFO: img:D:\REDS4\val\val_0train_000000054.png - PSNR: 22.555823 dB; SSIM: 0.637321; PSNR_Y: 23.990075 dB; SSIM_Y: 0.673279.
+22-08-06 22:01:22.666 - INFO: img:D:\REDS4\val\val_0train_000000055.png - PSNR: 22.566538 dB; SSIM: 0.635627; PSNR_Y: 23.990786 dB; SSIM_Y: 0.671536.
+22-08-06 22:01:24.902 - INFO: img:D:\REDS4\val\val_0train_000000056.png - PSNR: 22.666816 dB; SSIM: 0.635241; PSNR_Y: 24.091015 dB; SSIM_Y: 0.671705.
+22-08-06 22:01:27.119 - INFO: img:D:\REDS4\val\val_0train_000000057.png - PSNR: 22.561945 dB; SSIM: 0.630573; PSNR_Y: 23.987639 dB; SSIM_Y: 0.666885.
+22-08-06 22:01:29.335 - INFO: img:D:\REDS4\val\val_0train_000000058.png - PSNR: 22.614859 dB; SSIM: 0.632480; PSNR_Y: 24.040870 dB; SSIM_Y: 0.669089.
+22-08-06 22:01:31.543 - INFO: img:D:\REDS4\val\val_0train_000000059.png - PSNR: 22.539811 dB; SSIM: 0.629389; PSNR_Y: 23.965591 dB; SSIM_Y: 0.665676.
+22-08-06 22:01:33.807 - INFO: img:D:\REDS4\val\val_0train_000000060.png - PSNR: 22.365557 dB; SSIM: 0.629782; PSNR_Y: 23.800114 dB; SSIM_Y: 0.665860.
+22-08-06 22:01:36.002 - INFO: img:D:\REDS4\val\val_0train_000000061.png - PSNR: 22.296930 dB; SSIM: 0.628732; PSNR_Y: 23.726101 dB; SSIM_Y: 0.664132.
+22-08-06 22:01:38.271 - INFO: img:D:\REDS4\val\val_0train_000000062.png - PSNR: 22.248022 dB; SSIM: 0.626984; PSNR_Y: 23.676911 dB; SSIM_Y: 0.662260.
+22-08-06 22:01:40.511 - INFO: img:D:\REDS4\val\val_0train_000000063.png - PSNR: 22.358617 dB; SSIM: 0.638815; PSNR_Y: 23.794819 dB; SSIM_Y: 0.673606.
+22-08-06 22:01:42.751 - INFO: img:D:\REDS4\val\val_0train_000000064.png - PSNR: 22.464470 dB; SSIM: 0.652945; PSNR_Y: 23.900771 dB; SSIM_Y: 0.686338.
+22-08-06 22:01:45.005 - INFO: img:D:\REDS4\val\val_0train_000000065.png - PSNR: 22.512239 dB; SSIM: 0.654778; PSNR_Y: 23.948429 dB; SSIM_Y: 0.688199.
+22-08-06 22:01:47.287 - INFO: img:D:\REDS4\val\val_0train_000000066.png - PSNR: 22.536197 dB; SSIM: 0.648396; PSNR_Y: 23.974209 dB; SSIM_Y: 0.682775.
+22-08-06 22:01:49.526 - INFO: img:D:\REDS4\val\val_0train_000000067.png - PSNR: 22.585837 dB; SSIM: 0.643648; PSNR_Y: 24.014412 dB; SSIM_Y: 0.678449.
+22-08-06 22:01:51.840 - INFO: img:D:\REDS4\val\val_0train_000000068.png - PSNR: 22.721295 dB; SSIM: 0.637154; PSNR_Y: 24.144812 dB; SSIM_Y: 0.672609.
+22-08-06 22:01:54.044 - INFO: img:D:\REDS4\val\val_0train_000000069.png - PSNR: 22.698371 dB; SSIM: 0.627376; PSNR_Y: 24.116235 dB; SSIM_Y: 0.663326.
+22-08-06 22:01:56.281 - INFO: img:D:\REDS4\val\val_0train_000000070.png - PSNR: 22.598846 dB; SSIM: 0.622877; PSNR_Y: 24.020258 dB; SSIM_Y: 0.658479.
+22-08-06 22:01:58.473 - INFO: img:D:\REDS4\val\val_0train_000000071.png - PSNR: 22.586012 dB; SSIM: 0.620767; PSNR_Y: 24.006746 dB; SSIM_Y: 0.656326.
+22-08-06 22:02:00.764 - INFO: img:D:\REDS4\val\val_0train_000000072.png - PSNR: 22.615761 dB; SSIM: 0.612740; PSNR_Y: 24.040768 dB; SSIM_Y: 0.649349.
+22-08-06 22:02:02.991 - INFO: img:D:\REDS4\val\val_0train_000000073.png - PSNR: 22.677524 dB; SSIM: 0.607476; PSNR_Y: 24.096334 dB; SSIM_Y: 0.644331.
+22-08-06 22:02:05.225 - INFO: img:D:\REDS4\val\val_0train_000000074.png - PSNR: 22.753177 dB; SSIM: 0.609066; PSNR_Y: 24.173420 dB; SSIM_Y: 0.645959.
+22-08-06 22:02:07.390 - INFO: img:D:\REDS4\val\val_0train_000000075.png - PSNR: 22.720114 dB; SSIM: 0.609666; PSNR_Y: 24.142606 dB; SSIM_Y: 0.646413.
+22-08-06 22:02:09.656 - INFO: img:D:\REDS4\val\val_0train_000000076.png - PSNR: 22.653762 dB; SSIM: 0.611579; PSNR_Y: 24.075328 dB; SSIM_Y: 0.647552.
+22-08-06 22:02:12.174 - INFO: img:D:\REDS4\val\val_0train_000000077.png - PSNR: 22.544511 dB; SSIM: 0.613904; PSNR_Y: 23.970236 dB; SSIM_Y: 0.649139.
+22-08-06 22:02:14.393 - INFO: img:D:\REDS4\val\val_0train_000000078.png - PSNR: 22.503497 dB; SSIM: 0.618894; PSNR_Y: 23.936581 dB; SSIM_Y: 0.653607.
+22-08-06 22:02:16.798 - INFO: img:D:\REDS4\val\val_0train_000000079.png - PSNR: 22.481234 dB; SSIM: 0.624657; PSNR_Y: 23.902629 dB; SSIM_Y: 0.658168.
+22-08-06 22:02:19.076 - INFO: img:D:\REDS4\val\val_0train_000000080.png - PSNR: 22.404550 dB; SSIM: 0.628047; PSNR_Y: 23.825557 dB; SSIM_Y: 0.660862.
+22-08-06 22:02:21.425 - INFO: img:D:\REDS4\val\val_0train_000000081.png - PSNR: 22.440083 dB; SSIM: 0.632852; PSNR_Y: 23.859822 dB; SSIM_Y: 0.664961.
+22-08-06 22:02:23.658 - INFO: img:D:\REDS4\val\val_0train_000000082.png - PSNR: 22.362013 dB; SSIM: 0.626816; PSNR_Y: 23.783024 dB; SSIM_Y: 0.658771.
+22-08-06 22:02:25.941 - INFO: img:D:\REDS4\val\val_0train_000000083.png - PSNR: 22.440590 dB; SSIM: 0.623164; PSNR_Y: 23.858428 dB; SSIM_Y: 0.655481.
+22-08-06 22:02:28.190 - INFO: img:D:\REDS4\val\val_0train_000000084.png - PSNR: 22.301887 dB; SSIM: 0.603203; PSNR_Y: 23.716278 dB; SSIM_Y: 0.637416.
+22-08-06 22:02:30.375 - INFO: img:D:\REDS4\val\val_0train_000000085.png - PSNR: 22.210768 dB; SSIM: 0.594164; PSNR_Y: 23.617102 dB; SSIM_Y: 0.628017.
+22-08-06 22:02:32.560 - INFO: img:D:\REDS4\val\val_0train_000000086.png - PSNR: 22.157135 dB; SSIM: 0.581967; PSNR_Y: 23.563429 dB; SSIM_Y: 0.616168.
+22-08-06 22:02:34.821 - INFO: img:D:\REDS4\val\val_0train_000000087.png - PSNR: 22.083606 dB; SSIM: 0.580398; PSNR_Y: 23.492724 dB; SSIM_Y: 0.613979.
+22-08-06 22:02:37.027 - INFO: img:D:\REDS4\val\val_0train_000000088.png - PSNR: 21.925905 dB; SSIM: 0.587089; PSNR_Y: 23.338479 dB; SSIM_Y: 0.620095.
+22-08-06 22:02:39.267 - INFO: img:D:\REDS4\val\val_0train_000000089.png - PSNR: 21.860099 dB; SSIM: 0.600498; PSNR_Y: 23.280347 dB; SSIM_Y: 0.631986.
+22-08-06 22:02:41.552 - INFO: img:D:\REDS4\val\val_0train_000000090.png - PSNR: 21.844299 dB; SSIM: 0.606088; PSNR_Y: 23.262611 dB; SSIM_Y: 0.636950.
+22-08-06 22:02:43.876 - INFO: img:D:\REDS4\val\val_0train_000000091.png - PSNR: 21.903334 dB; SSIM: 0.609681; PSNR_Y: 23.323000 dB; SSIM_Y: 0.640403.
+22-08-06 22:02:46.144 - INFO: img:D:\REDS4\val\val_0train_000000092.png - PSNR: 21.951131 dB; SSIM: 0.613291; PSNR_Y: 23.366646 dB; SSIM_Y: 0.644034.
+22-08-06 22:02:48.387 - INFO: img:D:\REDS4\val\val_0train_000000093.png - PSNR: 21.993845 dB; SSIM: 0.613769; PSNR_Y: 23.407833 dB; SSIM_Y: 0.644973.
+22-08-06 22:02:50.715 - INFO: img:D:\REDS4\val\val_0train_000000094.png - PSNR: 22.033119 dB; SSIM: 0.615315; PSNR_Y: 23.444816 dB; SSIM_Y: 0.647056.
+22-08-06 22:02:53.024 - INFO: img:D:\REDS4\val\val_0train_000000095.png - PSNR: 22.244508 dB; SSIM: 0.617701; PSNR_Y: 23.650968 dB; SSIM_Y: 0.650872.
+22-08-06 22:02:55.311 - INFO: img:D:\REDS4\val\val_0train_000000096.png - PSNR: 22.485597 dB; SSIM: 0.616031; PSNR_Y: 23.891808 dB; SSIM_Y: 0.650508.
+22-08-06 22:02:57.647 - INFO: img:D:\REDS4\val\val_0train_000000097.png - PSNR: 22.507127 dB; SSIM: 0.614879; PSNR_Y: 23.910495 dB; SSIM_Y: 0.648827.
+22-08-06 22:02:59.880 - INFO: img:D:\REDS4\val\val_0train_000000098.png - PSNR: 22.531575 dB; SSIM: 0.620191; PSNR_Y: 23.940567 dB; SSIM_Y: 0.653259.
+22-08-06 22:03:02.259 - INFO: img:D:\REDS4\val\val_0train_000000099.png - PSNR: 22.490772 dB; SSIM: 0.623353; PSNR_Y: 23.906069 dB; SSIM_Y: 0.655960.
+22-08-06 22:03:04.514 - INFO: img:D:\REDS4\val\val_1100000000.png - PSNR: 21.409263 dB; SSIM: 0.597171; PSNR_Y: 22.707849 dB; SSIM_Y: 0.627669.
+22-08-06 22:03:06.811 - INFO: img:D:\REDS4\val\val_1100000001.png - PSNR: 21.256817 dB; SSIM: 0.584266; PSNR_Y: 22.571613 dB; SSIM_Y: 0.615991.
+22-08-06 22:03:09.056 - INFO: img:D:\REDS4\val\val_1100000002.png - PSNR: 21.193084 dB; SSIM: 0.575131; PSNR_Y: 22.505528 dB; SSIM_Y: 0.607479.
+22-08-06 22:03:11.304 - INFO: img:D:\REDS4\val\val_1100000003.png - PSNR: 21.218395 dB; SSIM: 0.579236; PSNR_Y: 22.532549 dB; SSIM_Y: 0.611501.
+22-08-06 22:03:13.530 - INFO: img:D:\REDS4\val\val_1100000004.png - PSNR: 21.282525 dB; SSIM: 0.590793; PSNR_Y: 22.598390 dB; SSIM_Y: 0.622658.
+22-08-06 22:03:15.842 - INFO: img:D:\REDS4\val\val_1100000005.png - PSNR: 21.288371 dB; SSIM: 0.596828; PSNR_Y: 22.605040 dB; SSIM_Y: 0.628669.
+22-08-06 22:03:18.116 - INFO: img:D:\REDS4\val\val_1100000006.png - PSNR: 21.321164 dB; SSIM: 0.596940; PSNR_Y: 22.631180 dB; SSIM_Y: 0.628648.
+22-08-06 22:03:20.333 - INFO: img:D:\REDS4\val\val_1100000007.png - PSNR: 21.381023 dB; SSIM: 0.598324; PSNR_Y: 22.694350 dB; SSIM_Y: 0.630035.
+22-08-06 22:03:22.655 - INFO: img:D:\REDS4\val\val_1100000008.png - PSNR: 21.427199 dB; SSIM: 0.599954; PSNR_Y: 22.741972 dB; SSIM_Y: 0.631633.
+22-08-06 22:03:24.948 - INFO: img:D:\REDS4\val\val_1100000009.png - PSNR: 21.479942 dB; SSIM: 0.600243; PSNR_Y: 22.795959 dB; SSIM_Y: 0.632027.
+22-08-06 22:03:27.205 - INFO: img:D:\REDS4\val\val_1100000010.png - PSNR: 21.452280 dB; SSIM: 0.599474; PSNR_Y: 22.765127 dB; SSIM_Y: 0.631108.
+22-08-06 22:03:29.473 - INFO: img:D:\REDS4\val\val_1100000011.png - PSNR: 21.433226 dB; SSIM: 0.595418; PSNR_Y: 22.746391 dB; SSIM_Y: 0.626856.
+22-08-06 22:03:31.804 - INFO: img:D:\REDS4\val\val_1100000012.png - PSNR: 21.530001 dB; SSIM: 0.596777; PSNR_Y: 22.841333 dB; SSIM_Y: 0.628230.
+22-08-06 22:03:34.067 - INFO: img:D:\REDS4\val\val_1100000013.png - PSNR: 21.503535 dB; SSIM: 0.594254; PSNR_Y: 22.816785 dB; SSIM_Y: 0.625657.
+22-08-06 22:03:36.382 - INFO: img:D:\REDS4\val\val_1100000014.png - PSNR: 21.513840 dB; SSIM: 0.587581; PSNR_Y: 22.825511 dB; SSIM_Y: 0.619258.
+22-08-06 22:03:38.737 - INFO: img:D:\REDS4\val\val_1100000015.png - PSNR: 21.482112 dB; SSIM: 0.583820; PSNR_Y: 22.794049 dB; SSIM_Y: 0.615670.
+22-08-06 22:03:41.062 - INFO: img:D:\REDS4\val\val_1100000016.png - PSNR: 21.394920 dB; SSIM: 0.573301; PSNR_Y: 22.706067 dB; SSIM_Y: 0.605291.
+22-08-06 22:03:43.350 - INFO: img:D:\REDS4\val\val_1100000017.png - PSNR: 21.254917 dB; SSIM: 0.558976; PSNR_Y: 22.564931 dB; SSIM_Y: 0.590953.
+22-08-06 22:03:45.656 - INFO: img:D:\REDS4\val\val_1100000018.png - PSNR: 21.194394 dB; SSIM: 0.552936; PSNR_Y: 22.504241 dB; SSIM_Y: 0.585295.
+22-08-06 22:03:48.068 - INFO: img:D:\REDS4\val\val_1100000019.png - PSNR: 21.134045 dB; SSIM: 0.543715; PSNR_Y: 22.445355 dB; SSIM_Y: 0.576102.
+22-08-06 22:03:50.309 - INFO: img:D:\REDS4\val\val_1100000020.png - PSNR: 21.066971 dB; SSIM: 0.538856; PSNR_Y: 22.376619 dB; SSIM_Y: 0.570845.
+22-08-06 22:03:52.599 - INFO: img:D:\REDS4\val\val_1100000021.png - PSNR: 20.995863 dB; SSIM: 0.532320; PSNR_Y: 22.305359 dB; SSIM_Y: 0.564139.
+22-08-06 22:03:54.905 - INFO: img:D:\REDS4\val\val_1100000022.png - PSNR: 20.979304 dB; SSIM: 0.529426; PSNR_Y: 22.293232 dB; SSIM_Y: 0.561447.
+22-08-06 22:03:57.185 - INFO: img:D:\REDS4\val\val_1100000023.png - PSNR: 20.968386 dB; SSIM: 0.529458; PSNR_Y: 22.283930 dB; SSIM_Y: 0.561461.
+22-08-06 22:03:59.437 - INFO: img:D:\REDS4\val\val_1100000024.png - PSNR: 21.041829 dB; SSIM: 0.535641; PSNR_Y: 22.352656 dB; SSIM_Y: 0.567600.
+22-08-06 22:04:01.695 - INFO: img:D:\REDS4\val\val_1100000025.png - PSNR: 21.046391 dB; SSIM: 0.536046; PSNR_Y: 22.358427 dB; SSIM_Y: 0.567765.
+22-08-06 22:04:03.974 - INFO: img:D:\REDS4\val\val_1100000026.png - PSNR: 21.055295 dB; SSIM: 0.541327; PSNR_Y: 22.368516 dB; SSIM_Y: 0.572687.
+22-08-06 22:04:06.252 - INFO: img:D:\REDS4\val\val_1100000027.png - PSNR: 21.082470 dB; SSIM: 0.545046; PSNR_Y: 22.395538 dB; SSIM_Y: 0.576188.
+22-08-06 22:04:08.456 - INFO: img:D:\REDS4\val\val_1100000028.png - PSNR: 21.130885 dB; SSIM: 0.544912; PSNR_Y: 22.444849 dB; SSIM_Y: 0.576229.
+22-08-06 22:04:10.682 - INFO: img:D:\REDS4\val\val_1100000029.png - PSNR: 21.196325 dB; SSIM: 0.546270; PSNR_Y: 22.510519 dB; SSIM_Y: 0.577673.
+22-08-06 22:04:12.961 - INFO: img:D:\REDS4\val\val_1100000030.png - PSNR: 21.300438 dB; SSIM: 0.551714; PSNR_Y: 22.610994 dB; SSIM_Y: 0.583134.
+22-08-06 22:04:15.241 - INFO: img:D:\REDS4\val\val_1100000031.png - PSNR: 21.180988 dB; SSIM: 0.536348; PSNR_Y: 22.496283 dB; SSIM_Y: 0.567936.
+22-08-06 22:04:17.446 - INFO: img:D:\REDS4\val\val_1100000032.png - PSNR: 20.916528 dB; SSIM: 0.515868; PSNR_Y: 22.226273 dB; SSIM_Y: 0.547311.
+22-08-06 22:04:19.699 - INFO: img:D:\REDS4\val\val_1100000033.png - PSNR: 20.917438 dB; SSIM: 0.520796; PSNR_Y: 22.225536 dB; SSIM_Y: 0.551889.
+22-08-06 22:04:21.919 - INFO: img:D:\REDS4\val\val_1100000034.png - PSNR: 20.984694 dB; SSIM: 0.533137; PSNR_Y: 22.296115 dB; SSIM_Y: 0.563813.
+22-08-06 22:04:24.128 - INFO: img:D:\REDS4\val\val_1100000035.png - PSNR: 21.006801 dB; SSIM: 0.537241; PSNR_Y: 22.317715 dB; SSIM_Y: 0.567737.
+22-08-06 22:04:26.317 - INFO: img:D:\REDS4\val\val_1100000036.png - PSNR: 20.967430 dB; SSIM: 0.530551; PSNR_Y: 22.275516 dB; SSIM_Y: 0.561577.
+22-08-06 22:04:28.618 - INFO: img:D:\REDS4\val\val_1100000037.png - PSNR: 20.887392 dB; SSIM: 0.522488; PSNR_Y: 22.194457 dB; SSIM_Y: 0.553179.
+22-08-06 22:04:30.852 - INFO: img:D:\REDS4\val\val_1100000038.png - PSNR: 20.838968 dB; SSIM: 0.516031; PSNR_Y: 22.145342 dB; SSIM_Y: 0.546506.
+22-08-06 22:04:33.106 - INFO: img:D:\REDS4\val\val_1100000039.png - PSNR: 20.766336 dB; SSIM: 0.513302; PSNR_Y: 22.071900 dB; SSIM_Y: 0.543665.
+22-08-06 22:04:35.296 - INFO: img:D:\REDS4\val\val_1100000040.png - PSNR: 20.741789 dB; SSIM: 0.512995; PSNR_Y: 22.049573 dB; SSIM_Y: 0.542905.
+22-08-06 22:04:37.649 - INFO: img:D:\REDS4\val\val_1100000041.png - PSNR: 20.695848 dB; SSIM: 0.508283; PSNR_Y: 22.002390 dB; SSIM_Y: 0.538418.
+22-08-06 22:04:39.965 - INFO: img:D:\REDS4\val\val_1100000042.png - PSNR: 20.690663 dB; SSIM: 0.507666; PSNR_Y: 21.992762 dB; SSIM_Y: 0.538116.
+22-08-06 22:04:42.174 - INFO: img:D:\REDS4\val\val_1100000043.png - PSNR: 20.652336 dB; SSIM: 0.506411; PSNR_Y: 21.957964 dB; SSIM_Y: 0.536315.
+22-08-06 22:04:44.406 - INFO: img:D:\REDS4\val\val_1100000044.png - PSNR: 20.601627 dB; SSIM: 0.501577; PSNR_Y: 21.906024 dB; SSIM_Y: 0.531506.
+22-08-06 22:04:46.628 - INFO: img:D:\REDS4\val\val_1100000045.png - PSNR: 20.516897 dB; SSIM: 0.488167; PSNR_Y: 21.822740 dB; SSIM_Y: 0.518523.
+22-08-06 22:04:48.953 - INFO: img:D:\REDS4\val\val_1100000046.png - PSNR: 20.464702 dB; SSIM: 0.465667; PSNR_Y: 21.769699 dB; SSIM_Y: 0.496670.
+22-08-06 22:04:51.154 - INFO: img:D:\REDS4\val\val_1100000047.png - PSNR: 20.181388 dB; SSIM: 0.440378; PSNR_Y: 21.484031 dB; SSIM_Y: 0.471325.
+22-08-06 22:04:53.372 - INFO: img:D:\REDS4\val\val_1100000048.png - PSNR: 20.078843 dB; SSIM: 0.440563; PSNR_Y: 21.375409 dB; SSIM_Y: 0.471035.
+22-08-06 22:04:55.540 - INFO: img:D:\REDS4\val\val_1100000049.png - PSNR: 20.006465 dB; SSIM: 0.444372; PSNR_Y: 21.304543 dB; SSIM_Y: 0.474481.
+22-08-06 22:04:57.774 - INFO: img:D:\REDS4\val\val_1100000050.png - PSNR: 19.975403 dB; SSIM: 0.446789; PSNR_Y: 21.273992 dB; SSIM_Y: 0.476562.
+22-08-06 22:04:59.981 - INFO: img:D:\REDS4\val\val_1100000051.png - PSNR: 19.952235 dB; SSIM: 0.443650; PSNR_Y: 21.251931 dB; SSIM_Y: 0.473523.
+22-08-06 22:05:02.227 - INFO: img:D:\REDS4\val\val_1100000052.png - PSNR: 19.902676 dB; SSIM: 0.446865; PSNR_Y: 21.203585 dB; SSIM_Y: 0.476572.
+22-08-06 22:05:04.430 - INFO: img:D:\REDS4\val\val_1100000053.png - PSNR: 19.860687 dB; SSIM: 0.449144; PSNR_Y: 21.162319 dB; SSIM_Y: 0.478528.
+22-08-06 22:05:06.664 - INFO: img:D:\REDS4\val\val_1100000054.png - PSNR: 19.915083 dB; SSIM: 0.450942; PSNR_Y: 21.214836 dB; SSIM_Y: 0.480499.
+22-08-06 22:05:08.908 - INFO: img:D:\REDS4\val\val_1100000055.png - PSNR: 19.978860 dB; SSIM: 0.447395; PSNR_Y: 21.285406 dB; SSIM_Y: 0.476941.
+22-08-06 22:05:11.153 - INFO: img:D:\REDS4\val\val_1100000056.png - PSNR: 20.053781 dB; SSIM: 0.446138; PSNR_Y: 21.365853 dB; SSIM_Y: 0.475518.
+22-08-06 22:05:13.476 - INFO: img:D:\REDS4\val\val_1100000057.png - PSNR: 20.061007 dB; SSIM: 0.444091; PSNR_Y: 21.372112 dB; SSIM_Y: 0.473293.
+22-08-06 22:05:15.773 - INFO: img:D:\REDS4\val\val_1100000058.png - PSNR: 20.075838 dB; SSIM: 0.442424; PSNR_Y: 21.387707 dB; SSIM_Y: 0.471658.
+22-08-06 22:05:18.160 - INFO: img:D:\REDS4\val\val_1100000059.png - PSNR: 20.201577 dB; SSIM: 0.451425; PSNR_Y: 21.512970 dB; SSIM_Y: 0.480552.

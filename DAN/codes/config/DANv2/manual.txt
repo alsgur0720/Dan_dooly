@@ -1,0 +1,2 @@
+python train.py -opt options/setting1/train/train_setting1_x4.yml
+python test.py --opt options/setting1/test/test_setting1_x4.yml
